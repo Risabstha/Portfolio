@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useTheme } from "../stores/ThemeProvider";
 
 const InputField: React.FC = () => {
-  const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState("");
+  const [focused, setFocused] = useState<boolean>(false);
+  const [value, setValue] = useState<string>("");
    const { theme } = useTheme();
 
   return (

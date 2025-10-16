@@ -3,7 +3,8 @@ import AppRouter from './routes/AppRouter'
 import { useTheme } from "./stores/ThemeProvider";
 import "./App.css";   // for night mode/ light mode
 
-const App = () => {
+// this function renders functional componenet
+const App: React.FC = () => {   // React:FC  => functional component
   const { theme } = useTheme();   
   return (
     <div className='App' data-theme={theme==="dark" && "dark" }>
