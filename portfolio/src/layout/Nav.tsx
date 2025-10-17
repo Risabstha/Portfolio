@@ -6,7 +6,8 @@ import { BsThreeDots } from "react-icons/bs";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTheme } from "../stores/ThemeProvider";
-
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Nav = () => {
   const [threedot, setThreedot] = useState<boolean>(false);
@@ -18,20 +19,25 @@ const Nav = () => {
   const { theme } = useTheme();
 
   return (
-    // sticky works only with its closest ancestor
-      <nav className={`sticky top-0 md:z-40 z-50 md:ml-[6rem] md:mr-[3rem]  ${theme === 'dark' ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"}`}>
+    <div className="md:ml-[1.5rem] lg:ml-[1..8rem] xl:ml-[2rem] md:flex md:justify-center">
+      {/* // sticky works only with its closest ancestor */}
+      <nav
+        className={`md:fixed md:top-0 md:z-40 xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  ${
+          theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
+        }`}
+      >
         {/* Desktop NavBar */}
         <div className=" hidden md:flex md:justify-between md:px-4 md:py-6 md:text-xl">
-          <div className="flex  gap-x-3 cursor-pointer">
+          <div className="flex  md:gap-x-2 lg:gap-x-3 cursor-pointer">
             {theme === "dark" ? (
               <img className="w-[22px] h-[22px] mt-1 " src={logo} alt="logo" />
             ) : (
               <img className="w-[22px] h-[22px] mt-1 " src={logo1} alt="logo" />
             )}
-            <span>Risab Shrestha</span>
+            <span className="pt-0.5">Risab Shrestha</span>
           </div>
 
-          <ul className="flex gap-x-5 ">
+          <ul className="flex md:gap-x-1 lg:gap-x-5 ">
             <li className="flex  px-2 py-1 cursor-pointer">
               <span className=" text-lg py-1.5 text-[#C778DD]">
                 <HiHashtag />
@@ -63,70 +69,109 @@ const Nav = () => {
         </div>
 
         {/* Mobile Navbar */}
-        <div>
-          <div className=" md:hidden  px-4 py-3 ">
-            <div className="flex justify-between gap-x-3 text-md  pb-4">
-              <div className="flex  gap-x-3 cursor-pointer">
-                {theme === "dark" ? (
-                  <img
-                    className="w-[22px] h-[22px] mt-1 "
-                    src={logo}
-                    alt="logo"
-                  />
-                ) : (
-                  <img
-                    className="w-[22px] h-[22px] mt-1 "
-                    src={logo1}
-                    alt="logo"
-                  />
-                )}
-                <span>Risab Shrestha</span>
-              </div>
-              <div className="flex  gap-x-5">
-                <div className="flex  px-2 py-1 cursor-pointer">
-                  <ThemeToggle />
-                </div>
-                <span
-                  className="text-2xl cursor-pointer"
-                  onClick={() => ThreedotOpen()}
-                >
-                  {threedot ? <IoClose /> : <BsThreeDots />}
-                </span>
-              </div>
+        {/* parent div lai fixed garera  */}
+        <div className= {`md:hidden fixed w-[100vw] z-[999] top-0 left-0  ${
+          theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
+        }`} >
+          <div className="flex justify-between gap-x-3 text-md  pb-4 px-4 py-3 ">
+            <div className="flex  gap-x-3 cursor-pointer">
+              {theme === "dark" ? (
+                <img
+                  className="w-[22px] h-[22px] mt-1 "
+                  src={logo}
+                  alt="logo"
+                />
+              ) : (
+                <img
+                  className="w-[22px] h-[22px] mt-1 "
+                  src={logo1}
+                  alt="logo"
+                />
+              )}
+              <span>Risab Shrestha</span>
             </div>
-            {threedot && (
-              <ul className="gap-x-5 text-xl">
-                <li className="flex  px-2 py-1 cursor-pointer ">
+            <div className="flex  gap-x-5">
+              <div className="flex  px-2 py-1 cursor-pointer">
+                <ThemeToggle />
+              </div>
+              <span
+                className="text-2xl cursor-pointer"
+                onClick={() => ThreedotOpen()}
+              >
+                {threedot ? <IoClose /> : <BsThreeDots />}
+              </span>
+            </div>
+          </div>
+          {threedot && (
+            <div className="">
+              <ul
+                className={`gap-x-5  w-[100vw] text-xl ${
+                  theme === "dark" ? "bg-[#292828]" : "bg-[#e4e4e4]"
+                }`}
+              >
+                <li className="flex px-8  pt-3 pb-1.5 cursor-pointer  ">
                   <span className=" text-xl py-1.5 text-[#C778DD]">
                     <HiHashtag />
                   </span>
 
                   <span>home</span>
                 </li>
-                <li className="flex  px-2 py-1 cursor-pointer">
+                <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
                   <span className=" text-lg py-1.5 text-[#C778DD]">
                     <HiHashtag />
                   </span>
                   <span>project</span>
                 </li>
-                <li className="flex  px-2 py-1 cursor-pointer">
+                <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
                   <span className=" text-xl py-1.5 text-[#C778DD]">
                     <HiHashtag />
                   </span>
                   <span>about</span>
                 </li>
-                <li className="flex  px-2 py-1 cursor-pointer">
+                <li className="flex  px-8 pt-1.5 pb-3 cursor-pointer">
                   <span className=" text-xl py-1.5 text-[#C778DD]">
                     <HiHashtag />
                   </span>
                   <span>contact</span>
                 </li>
+
+                <li>
+                  <div className="flex justify-end space-x-6 px-8 pb-4">
+                    <Link
+                      to="https://github.com/Risabstha?tab=repositories"
+                      target="_blank"
+                    >
+                      <FaGithub
+                        className={`${
+                          theme === "dark"
+                            ? `text-gray-400 hover:text-white`
+                            : `text-gray-500 hover:text-gray-400`
+                        } cursor-pointer `}
+                        size={25}
+                      />
+                    </Link>
+
+                    <Link
+                      to="https://www.linkedin.com/in/risab-shrestha-47994b201/"
+                      target="_blank"
+                    >
+                      <FaLinkedin
+                        className={`${
+                          theme === "dark"
+                            ? `text-gray-400 hover:text-white`
+                            : `text-gray-500 hover:text-gray-400`
+                        } cursor-pointer`}
+                        size={25}   // size of icon
+                        />
+                    </Link>
+                  </div>
+                </li>
               </ul>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </nav>
-
+    </div>
   );
 };
 
