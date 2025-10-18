@@ -1,29 +1,22 @@
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import InputField from "../components/InputField";
 import MainHome from "../pages/MainHome";
-
+import Skills from "../pages/Skills";
 
 const AppRouter = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainHome />,
+      errorElement: <p>Error</p>,
+    },
+    {
+      path: "/skills",
+      element: <Skills />,
+      errorElement: <p>Error</p>,
+    },
+  ]);
 
-    const router = createBrowserRouter(
-       [ {
-            path : "/",
-            element : <MainHome/>,
-            errorElement : <p>Error</p>
+  return <RouterProvider router={router} />;
+};
 
-        },
-        {
-            path : "/input",
-            element : <InputField/>,
-            errorElement : <p>Error</p>
-        }
-    ]
-    )
-
-  return (
-    <RouterProvider router={router} />
-  )
-}
-
-export default AppRouter
+export default AppRouter;
