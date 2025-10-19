@@ -147,20 +147,18 @@ const Home = () => {
   }, [state.displayed, state.phase, state.index]);
 
   return (
-    <div className=" min-h-screen font-['Fira_Code',monospace] ">
+    <div className="  font-['Fira_Code',monospace] 
+    xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem] border-1 ">
       {/* Desktop view */}
-      <div className="hidden md:flex md:justify-center xl:pb-20 lg:pb-16 md:pb-12
+      <div className="hidden md:flex md:justify-center 
       md:ml-[1.5rem] 
       lg:ml-[1.5rem] 
       xl:ml-[2rem]">
-        <div className="flex  xl:w-[80vw] 
-        lg:w-[85vw] 
-        md:w-[88vw]  
-        md:gap-[2rem] 
-        lg:gap-[4rem]  
-        xl:gap-[6rem] 
-        pt-[12rem] px-4 ">
-          <div className="w-[60vw] pt-8   space-y-4">
+        <div className="flex  
+        xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  
+        md:gap-[2rem]  lg:gap-[4rem]   xl:gap-[6rem]  
+        pt-[10rem] px-4 ">
+          <div className="w-[60vw] pt-0   space-y-4">
             <div className="space-x-4">
               <p
                 className={`md:text-[30px] 
@@ -180,7 +178,7 @@ const Home = () => {
               </p>
             </div>
 
-            <p className="md:text-2xl 
+            <p className="md:text-[22px] 
             lg:text-3xl 
             xl:text-[32px] 
             font-semibold ">
@@ -191,7 +189,7 @@ const Home = () => {
                 }`}
               >
                 {state.displayed}
-                <span className="animate-blink font-extralight"> | </span>
+                <span className="animate-blink font-extralight">|</span>
               </span>
             </p>
 
@@ -217,6 +215,7 @@ const Home = () => {
             xl:w-[20rem] 
             lg:w-[18rem] 
             md:w-[16rem] ">
+
               <Symbol
                 width={120}
                 height={120}
@@ -245,7 +244,7 @@ const Home = () => {
                   xl:top-58 xl:right-2 
                   lg:top-58 lg:right-2 
                   md:top-52 md:right-2 
-                  opacity-60"
+                  opacity-70"
               />
             </div>
           </div>
@@ -314,11 +313,11 @@ const Home = () => {
       </div>
 
       {/* square svg */}
-      <SquareBox className="hidden md:block absolute 
-      md:top-[40rem] md:right-0 
+      <SquareBox className={`hidden md:block absolute 
+      md:top-[40rem] md:right-0
       xl:w-[4rem] xl-h-[4rem]
       lg:w-[3.2rem] lg-h-[3rem]
-      md:w-[2rem] md-h-[2rem]"
+      md:w-[2rem] md-h-[2rem]`}
        viewBox="0 0 59 91"/>
       
     </div>

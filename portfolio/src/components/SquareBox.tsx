@@ -1,10 +1,15 @@
+import { useTheme } from "../stores/ThemeProvider";
+
 interface squareBox {
   className: string;
   width ?: number;
   height ?: number;
   viewBox: string;
 }
+
 const SquareBox = ({ className, width, height, viewBox }: squareBox) => {
+
+  const {theme} = useTheme();
   return (
     <div>
       <svg
@@ -15,7 +20,7 @@ const SquareBox = ({ className, width, height, viewBox }: squareBox) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="0.5" y="0.5" width="90" height="90" stroke="#ABB2BF" />
+        <rect x="0.5" y="0.5" width="90" height="90" stroke={theme === "dark" ? "#9CA3AF" : "#374151" }/>
       </svg>
     </div>
   );

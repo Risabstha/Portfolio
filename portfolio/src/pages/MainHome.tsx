@@ -4,7 +4,8 @@ import Home from './Home'
 import SideNav from '../layout/SideNav'
 import Nav from '../layout/Nav'
 import Skills from './Skills'
-import Experience from './Experience'
+import Projects from './Projects'
+import Experiences from './Experiences'
 
 const MainHome = () => {
   return (
@@ -15,7 +16,8 @@ const MainHome = () => {
         <Nav/>
       <Home/>
       <Skills/>
-      <Experience/>
+      <Projects/>
+      <Experiences/>
     </div>
   )
 }

@@ -29,9 +29,8 @@ import { IoLogoFigma, IoLogoFirebase } from "react-icons/io5";
 const Skills = () => {
   const { theme } = useTheme();
   return (
-    <div className="  font-['Fira_Code',monospace]  
+    <div className="  font-['Fira_Code',monospace]   border-1
       md:flex md:justify-center 
-      md:ml-[1.5rem] lg:ml-[1.5rem] xl:ml-[2rem] 
       xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]">
       <section
         className="relative
@@ -65,7 +64,7 @@ const Skills = () => {
                 xl:top-10 xl:left-0 xl:ml-8 xl:w-18 xl:h-18
                 lg:top-9 lg:left-0 lg:ml-6 lg:w-16 lg:h-16
                 md:top-13 md:left-0 md:ml-4 md:w-10 md:h-10
-                opacity-60`}
+                opacity-70`}
             />
 
             <SquareBox
@@ -89,7 +88,7 @@ const Skills = () => {
                 xl:top-42 xl:left-56 xl:w-18 xl:h-18
                 lg:top-44 lg:left-44 lg:w-16 lg:h-16
                 md:top-36 md:left-27 md:w-10 md:h-10
-                opacity-60`}
+                opacity-70`}
             />
 
             <SquareBox
@@ -115,8 +114,8 @@ const Skills = () => {
               className="flex md:flex-row 
             flex-col md:flex md:gap-x-4 xl:gap-x-6 gap-y-4"
             >
-              <div className="border-2 border-gray-600 w-[15rem] md:w-[9rem] lg:w-[9.2rem] xl:w-[11rem]">
-                <div className="font-semibold border-b p-2 border-gray-600 mb-2">
+              <div className={`border-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}  w-[15rem] md:w-[9rem] lg:w-[9.2rem] xl:w-[11rem]`}>
+                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
                   languages
                 </div>
                 <div className="px-3 py-2">
@@ -135,8 +134,8 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-600 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem]">
-                <div className="font-semibold border-b p-2 border-gray-600 mb-2">
+              <div className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
+                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
                   databases
                 </div>
                 <div className="px-3 py-2">
@@ -151,8 +150,8 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-600 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem]">
-                <div className="font-semibold border-b p-2 border-gray-600 mb-2">
+              <div className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
+                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
                   tools
                 </div>
                 <div className="px-3 py-2">
@@ -230,8 +229,8 @@ const Skills = () => {
               className="flex flex-col
             md:flex md:flex-row md: justify-end md:gap-x-4 xl:gap-x-6 gap-y-4"
             >
-              <div className="border-2 border-gray-600 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem]">
-                <div className="font-semibold border-b p-2 border-gray-600 mb-2">
+              <div className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
+                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
                   others
                 </div>
                 <div className="px-3 py-2">
@@ -246,8 +245,8 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-600 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem] ">
-                <div className="font-semibold border-b p-2 border-gray-600 mb-2">
+              <div className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem]  ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
+                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
                   frameworks
                 </div>
                 <div className="px-3 py-2">

@@ -1,4 +1,4 @@
-
+import { useTheme } from "../stores/ThemeProvider";
 
 // for prop
 type SymbolProps = {
@@ -8,13 +8,16 @@ type SymbolProps = {
 };
 
 const Symbol:React.FC<SymbolProps> = ({width , height , className}) => {
+
+  const {theme} = useTheme();
+
   return (
     <div>
       <svg
                 className={className}
                 width={width}
                 height={height}
-                viewBox="-2 -2 158 158"
+                viewBox="-1 -1 159 159"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -27,7 +30,7 @@ const Symbol:React.FC<SymbolProps> = ({width , height , className}) => {
                 </mask>
                 <path
                   d="M0 39.75V38.75H-1V39.75H0ZM77.5 39.75H78.5V38.75H77.5V39.75ZM77.5 78.5V79.5H78.5V78.5H77.5ZM38.75 78.5V77.5H37.75V78.5H38.75ZM38.75 117.25H37.75V118.25H38.75V117.25ZM77.5 117.25H78.5V116.25H77.5V117.25ZM77.5 156V157H78.5V156H77.5ZM0 156H-1V157H0V156ZM38.75 38.75H0V40.75H38.75V38.75ZM77.5 38.75H38.75V40.75H77.5V38.75ZM78.5 78.5V39.75H76.5V78.5H78.5ZM38.75 79.5H77.5V77.5H38.75V79.5ZM39.75 117.25V78.5H37.75V117.25H39.75ZM38.75 118.25H77.5V116.25H38.75V118.25ZM76.5 117.25V156H78.5V117.25H76.5ZM77.5 155H38.75V157H77.5V155ZM0 157H38.75V155H0V157ZM-1 117.25V156H1V117.25H-1ZM-1 78.5V117.25H1V78.5H-1ZM-1 39.75V78.5H1V39.75H-1Z"
-                  fill="#C778DD"
+                  fill={theme === "dark" ? "#C778DD" : "#a840c5"}
                   mask="url(#path-1-inside-1_64_1298)"
                 />
                 <mask

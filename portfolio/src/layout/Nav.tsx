@@ -55,13 +55,13 @@ const Nav = () => {
               <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
-              <span>experience</span>
+              <span>projects</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
               <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
-              <span>projects</span>
+              <span>experience</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
               <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
@@ -133,13 +133,13 @@ const Nav = () => {
                   <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
-                  <span>experience</span>
+                  <span>projects</span>
                 </li>
                 <li className="flex  px-8 pt-1.5 pb-3 cursor-pointer">
                   <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
-                  <span>projects</span>
+                  <span>experience</span>
                 </li>
                 <li className="flex  px-8 pt-1.5 pb-3 cursor-pointer">
                   <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
