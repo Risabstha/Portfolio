@@ -2,10 +2,13 @@ import { useEffect, useReducer } from "react";
 import profile from "../assets/gojo.png";
 import { useTheme } from "../stores/ThemeProvider";
 import "../styles/Home.css";
+import "animate.css";
 import DownloadButton from "../components/DownloadButton";
+import Symbol from "../components/Symbol";
+import DotGrid from "../components/DotGrid";
+import SquareBox from "../components/SquareBox";
 
 // type type = "Full Stack Developer" | "Web Developer";
-
 const texts = ["FullStack Developer", "Web Developer"];
 
 const initialState: State = {
@@ -144,20 +147,43 @@ const Home = () => {
   }, [state.displayed, state.phase, state.index]);
 
   return (
-    <div>
+    <div className=" min-h-screen font-['Fira_Code',monospace] ">
       {/* Desktop view */}
-      <div className="hidden md:flex md:justify-center md:ml-[1.5rem] lg:ml-[1.5rem] xl:ml-[2rem]">
-        <div className="flex  xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] pt-[12rem] px-4 ">
+      <div className="hidden md:flex md:justify-center xl:pb-20 lg:pb-16 md:pb-12
+      md:ml-[1.5rem] 
+      lg:ml-[1.5rem] 
+      xl:ml-[2rem]">
+        <div className="flex  xl:w-[80vw] 
+        lg:w-[85vw] 
+        md:w-[88vw]  
+        md:gap-[2rem] 
+        lg:gap-[4rem]  
+        xl:gap-[6rem] 
+        pt-[12rem] px-4 ">
           <div className="w-[60vw] pt-8   space-y-4">
             <div className="space-x-4">
               <p
-                className={`md:text-[30px] lg:text-[40px] xl:text-[45px] font-semibold`}
+                className={`md:text-[30px] 
+                  lg:text-[40px] 
+                  xl:text-[45px] 
+                  font-semibold`}
               >
-                Hi, I am Risab Shrestha.
+                Hi, I am 
+              </p>
+              <p 
+               className={`md:text-[30px] 
+                  lg:text-[40px] 
+                  xl:text-[45px] 
+                  font-semibold`}
+              >
+                Risab Shrestha.
               </p>
             </div>
 
-            <p className="md:text-xl lg:text-2xl xl:text-3xl font-semibold ">
+            <p className="md:text-2xl 
+            lg:text-3xl 
+            xl:text-[32px] 
+            font-semibold ">
               I am a{" "}
               <span
                 className={` pr-1  ${
@@ -169,7 +195,10 @@ const Home = () => {
               </span>
             </p>
 
-            <p className="md:text-md lg:text-lg xl:text-xl  font-medium">
+            <p className="md:text-md 
+            lg:text-lg 
+            xl:text-xl  
+            font-medium">
               Hi! I am a web app developer passionate about building
               cross-platform apps with React. I focus on creating smooth,
               user-friendly experiences for web application. I also work with
@@ -177,130 +206,62 @@ const Home = () => {
               real-world problems and exploring new tech along the way.
             </p>
 
-            <div className=" py-3 ">
+            <div className=" py-3  w-[10rem] 
+            animate__animated animate__slideInRight transition-all duration-600 ease-in-out">
               <DownloadButton />
             </div>
           </div>
 
-          <div className="w-[40vw] flex justify-center ">
-            <div className="relative xl:w-[20rem] lg:w-[18rem] md:w-[16rem] ">
-              <svg
-                className="absolute xl:top-12 xl:left-0 lg:top-10 lg:left-0 md:top-8 md:left-0"
-                width="120"
-                height="120"
-                viewBox="-1 -1 158 158"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <mask id="path-1-inside-1_64_1298" fill="white">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M0 39.75H38.75H77.5V78.5H38.75V117.25H77.5V156H38.75H0V117.25V78.5V39.75Z"
-                  />
-                </mask>
-                <path
-                  d="M0 39.75V38.75H-1V39.75H0ZM77.5 39.75H78.5V38.75H77.5V39.75ZM77.5 78.5V79.5H78.5V78.5H77.5ZM38.75 78.5V77.5H37.75V78.5H38.75ZM38.75 117.25H37.75V118.25H38.75V117.25ZM77.5 117.25H78.5V116.25H77.5V117.25ZM77.5 156V157H78.5V156H77.5ZM0 156H-1V157H0V156ZM38.75 38.75H0V40.75H38.75V38.75ZM77.5 38.75H38.75V40.75H77.5V38.75ZM78.5 78.5V39.75H76.5V78.5H78.5ZM38.75 79.5H77.5V77.5H38.75V79.5ZM39.75 117.25V78.5H37.75V117.25H39.75ZM38.75 118.25H77.5V116.25H38.75V118.25ZM76.5 117.25V156H78.5V117.25H76.5ZM77.5 155H38.75V157H77.5V155ZM0 157H38.75V155H0V157ZM-1 117.25V156H1V117.25H-1ZM-1 78.5V117.25H1V78.5H-1ZM-1 39.75V78.5H1V39.75H-1Z"
-                  fill="#C778DD"
-                  mask="url(#path-1-inside-1_64_1298)"
-                />
-                <mask
-                  id="path-3-outside-2_64_1298"
-                  maskUnits="userSpaceOnUse"
-                  x="76.5"
-                  y="0"
-                  width="80"
-                  height="119"
-                  fill="black"
-                >
-                  <rect fill="white" x="76.5" width="80" height="119" />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M77.5 1H116.25H155V39.75V78.5V117.25H116.25H77.5V78.5H116.25V39.75H77.5V1Z"
-                  />
-                </mask>
-                <path
-                  d="M77.5 1V0H76.5V1H77.5ZM155 1H156V0H155V1ZM155 117.25V118.25H156V117.25H155ZM77.5 117.25H76.5V118.25H77.5V117.25ZM77.5 78.5V77.5H76.5V78.5H77.5ZM116.25 78.5V79.5H117.25V78.5H116.25ZM116.25 39.75H117.25V38.75H116.25V39.75ZM77.5 39.75H76.5V40.75H77.5V39.75ZM116.25 0H77.5V2H116.25V0ZM155 0H116.25V2H155V0ZM156 39.75V1H154V39.75H156ZM156 78.5V39.75H154V78.5H156ZM156 117.25V78.5H154V117.25H156ZM116.25 118.25H155V116.25H116.25V118.25ZM116.25 116.25H77.5V118.25H116.25V116.25ZM78.5 117.25V78.5H76.5V117.25H78.5ZM77.5 79.5H116.25V77.5H77.5V79.5ZM115.25 39.75V78.5H117.25V39.75H115.25ZM77.5 40.75H116.25V38.75H77.5V40.75ZM76.5 1V39.75H78.5V1H76.5Z"
-                  fill="#C778DD"
-                  mask="url(#path-3-outside-2_64_1298)"
-                />
-              </svg>
+          <div className="w-[40vw] flex justify-center  ">
+            <div className="relative 
+            xl:w-[20rem] 
+            lg:w-[18rem] 
+            md:w-[16rem] ">
+              <Symbol
+                width={120}
+                height={120}
+                className= "absolute xl:top-12 xl:left-0 lg:top-10 lg:left-0 md:top-8 md:left-0"
+                
+              />
 
               <div>
                 {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
                 <img
-                  className="relative xl:pt-3 lg:pt-8 md:pt-10 w-[23rem] "
+                  className="relative 
+                  xl:pt-3 
+                  lg:pt-8 
+                  md:pt-10 
+                  w-[23rem] "
                   src={profile}
                   alt="profile"
                 />
               </div>
 
               {/* yeslai img mathi rakhyo vane yeslai img le xopxa */}
-              <div
-                className={`grid grid-cols-5 gap-1 w-22 h-22 absolute xl:top-58 xl:right-2 lg:top-58 lg:right-2 md:top-52 md:right-2 md:opacity-60`}
-              >
-                {Array.from({ length: 25 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-1 h-1  rounded-full  ${
-                      theme === "dark" ? "bg-[#f2f2f2]" : "bg-[#2d2c2c]"
-                    }`}
-                  ></div>
-                ))}
-              </div>
+              <DotGrid
+                length={25}
+                className="grid grid-cols-5 gap-1 
+                  w-22 h-22 absolute 
+                  xl:top-58 xl:right-2 
+                  lg:top-58 lg:right-2 
+                  md:top-52 md:right-2 
+                  opacity-60"
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* mobile view */}
-      <div className="md:hidden flex justify-center">
+      <div className="md:hidden flex justify-center pb-10">
         <div className=" w-[100vw] pt-[5rem] px-4 ">
           {/* <div className="flex justify-center  z-0"> */}
           <div className="relative z-[0]  m-auto w-[15rem] flex justify-center ">
-            <svg
-              className="absolute top-7 left-2 "
-              width="60"
-              height="60"
-              viewBox="-1 -1 158 158"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask id="path-1-inside-1_64_1298" fill="white">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M0 39.75H38.75H77.5V78.5H38.75V117.25H77.5V156H38.75H0V117.25V78.5V39.75Z"
-                />
-              </mask>
-              <path
-                d="M0 39.75V38.75H-1V39.75H0ZM77.5 39.75H78.5V38.75H77.5V39.75ZM77.5 78.5V79.5H78.5V78.5H77.5ZM38.75 78.5V77.5H37.75V78.5H38.75ZM38.75 117.25H37.75V118.25H38.75V117.25ZM77.5 117.25H78.5V116.25H77.5V117.25ZM77.5 156V157H78.5V156H77.5ZM0 156H-1V157H0V156ZM38.75 38.75H0V40.75H38.75V38.75ZM77.5 38.75H38.75V40.75H77.5V38.75ZM78.5 78.5V39.75H76.5V78.5H78.5ZM38.75 79.5H77.5V77.5H38.75V79.5ZM39.75 117.25V78.5H37.75V117.25H39.75ZM38.75 118.25H77.5V116.25H38.75V118.25ZM76.5 117.25V156H78.5V117.25H76.5ZM77.5 155H38.75V157H77.5V155ZM0 157H38.75V155H0V157ZM-1 117.25V156H1V117.25H-1ZM-1 78.5V117.25H1V78.5H-1ZM-1 39.75V78.5H1V39.75H-1Z"
-                fill="#C778DD"
-                mask="url(#path-1-inside-1_64_1298)"
-              />
-              <mask
-                id="path-3-outside-2_64_1298"
-                maskUnits="userSpaceOnUse"
-                x="76.5"
-                y="0"
-                width="80"
-                height="119"
-                fill="black"
-              >
-                <rect fill="white" x="76.5" width="80" height="119" />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M77.5 1H116.25H155V39.75V78.5V117.25H116.25H77.5V78.5H116.25V39.75H77.5V1Z"
-                />
-              </mask>
-              <path
-                d="M77.5 1V0H76.5V1H77.5ZM155 1H156V0H155V1ZM155 117.25V118.25H156V117.25H155ZM77.5 117.25H76.5V118.25H77.5V117.25ZM77.5 78.5V77.5H76.5V78.5H77.5ZM116.25 78.5V79.5H117.25V78.5H116.25ZM116.25 39.75H117.25V38.75H116.25V39.75ZM77.5 39.75H76.5V40.75H77.5V39.75ZM116.25 0H77.5V2H116.25V0ZM155 0H116.25V2H155V0ZM156 39.75V1H154V39.75H156ZM156 78.5V39.75H154V78.5H156ZM156 117.25V78.5H154V117.25H156ZM116.25 118.25H155V116.25H116.25V118.25ZM116.25 116.25H77.5V118.25H116.25V116.25ZM78.5 117.25V78.5H76.5V117.25H78.5ZM77.5 79.5H116.25V77.5H77.5V79.5ZM115.25 39.75V78.5H117.25V39.75H115.25ZM77.5 40.75H116.25V38.75H77.5V40.75ZM76.5 1V39.75H78.5V1H76.5Z"
-                fill="#C778DD"
-                mask="url(#path-3-outside-2_64_1298)"
-              />
-            </svg>
+            <Symbol
+              width={60}
+              height={60}
+              className={"absolute top-7 left-2"}
+            />
 
             <div>
               {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
@@ -312,18 +273,12 @@ const Home = () => {
             </div>
 
             {/* yeslai img mathi rakhyo vane yeslai img le xopxa */}
-            <div
-              className={`grid grid-cols-4 gap-1 w-13 h-13 absolute top-30 opacity-60 right-5 z-[0]`}
-            >
-              {Array.from({ length: 16 }).map((_, i) => (
-                <div
-                  key={i}
-                  className={`w-1 h-1  rounded-full  ${
-                    theme === "dark" ? "bg-[#f2f2f2]" : "bg-[#2d2c2c]"
-                  }`}
-                ></div>
-              ))}
-            </div>
+            <DotGrid
+              length={16}
+              className="grid grid-cols-4 gap-1 
+                w-13 h-13 
+                absolute top-30  right-8 z-[0] opacity-60"
+            />
           </div>
           {/* </div> */}
 
@@ -350,24 +305,22 @@ const Home = () => {
               the MERN stack to build full solutions when needed. I love solving
               real-world problems and exploring new tech along the way.
             </p>
-            <div className=" py-3 ">
+            <div className=" py-3 mt-2 w-[10rem] 
+            animate__animated animate__slideInRight transition-all duration-600 ease-in-out">
               <DownloadButton />
             </div>
           </div>
         </div>
       </div>
 
-    {/* square svg */}
-      <svg
-        className="hidden md:block absolute xl:top-[43rem] xl:right-0 md:top-[45rem] md:right-0 "
-        width="82"
-        height="91"
-        viewBox="0 0 82 91"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="0.5" y="0.5" width="90" height="90" stroke="#ABB2BF" />
-      </svg>
+      {/* square svg */}
+      <SquareBox className="hidden md:block absolute 
+      md:top-[40rem] md:right-0 
+      xl:w-[4rem] xl-h-[4rem]
+      lg:w-[3.2rem] lg-h-[3rem]
+      md:w-[2rem] md-h-[2rem]"
+       viewBox="0 0 59 91"/>
+      
     </div>
   );
 };

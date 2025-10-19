@@ -4,6 +4,7 @@ import Home from './Home'
 import SideNav from '../layout/SideNav'
 import Nav from '../layout/Nav'
 import Skills from './Skills'
+import Experience from './Experience'
 
 const MainHome = () => {
   return (
@@ -14,6 +15,7 @@ const MainHome = () => {
         <Nav/>
       <Home/>
       <Skills/>
+      <Experience/>
     </div>
   )
 }

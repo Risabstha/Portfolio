@@ -20,7 +20,7 @@ const Nav = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="md:ml-[1.5rem] lg:ml-[1..8rem] xl:ml-[2rem] md:flex md:justify-center">
+    <div className="md:ml-[1.5rem] lg:ml-[1..8rem] xl:ml-[2rem] md:flex md:justify-center font-['Fira_Code',monospace]">
       {/* // sticky works only with its closest ancestor */}
       <nav
         className={`md:fixed md:top-0 md:z-40 xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  ${
@@ -28,7 +28,7 @@ const Nav = () => {
         }`}
       >
         {/* Desktop NavBar */}
-        <div className=" hidden md:flex md:justify-between md:px-2 xl:px-4 md:py-6 md:text-lg lg:text-xl">
+        <div className=" hidden md:flex md:justify-between md:px-2 xl:px-4 md:py-6 md:text-md lg:text-xl">
           <div className="flex  md:gap-x-1.5 lg:gap-x-3 cursor-pointer">
             {theme === "dark" ? (
               <img className="w-[22px] h-[22px] mt-1 " src={logo} alt="logo" />
@@ -38,33 +38,33 @@ const Nav = () => {
             <span className="pt-0.5">Risab Shrestha</span>
           </div>
 
-          <ul className="flex  lg:gap-x-3 xl:gap-x-5">
+          <ul className="flex md:gap-x-0 lg:gap-x-1 xl:gap-x-5">
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>home</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>skills</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>experience</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>projects</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>contact</span>
