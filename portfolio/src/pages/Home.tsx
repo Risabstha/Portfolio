@@ -153,31 +153,37 @@ const Home = () => {
     >
       {/* Desktop view */}
       <div
-        className="hidden md:flex md:justify-center border-1
+        className="hidden md:flex md:justify-center 
       md:ml-[1.5rem] 
-      lg:ml-[1.5rem] 
+      mdlg:ml-[1.65rem]
+      lg:ml-[1.8rem] 
       xl:ml-[2rem]"
       >
         <div
-          className="flex border-1 
+          className="flex  
         xl:w-[80vw] lg:w-[85vw] md:w-[88vw] 
-        md:gap-[2rem]  lg:gap-[4rem]   xl:gap-[6rem]  
+        md:gap-[2rem] mdlg:gap-[2.5rem] lg:gap-[3rem]  xl:gap-[3.4rem]  
         pt-[10rem] px-4 "
         >
-          <div className="w-[60vw] pt-0   space-y-4">
+          <div
+            className="w-[65vw]    
+                      xl:space-y-4 lg:space-y-3.5 mdlg:space-y-3 md:space-y-2.5"
+          >
             <div className="space-x-4">
               <p
-                className={`md:text-[30px] 
-                  lg:text-[40px] 
-                  xl:text-[45px] 
+                className={`md:text-[1.875rem]
+                  mdlg:text-[2.1875rem] 
+                  lg:text-[2.5rem] 
+                  xl:text-[2.8125rem]
                   font-semibold`}
               >
                 Hi, I am
               </p>
               <p
-                className={`md:text-[30px] 
-                  lg:text-[40px] 
-                  xl:text-[45px] 
+                className={`md:text-[1.875rem]
+                  mdlg:text-[2.1875rem] 
+                  lg:text-[2.5rem] 
+                  xl:text-[2.8125rem]
                   font-semibold`}
               >
                 Risab Shrestha.
@@ -185,9 +191,9 @@ const Home = () => {
             </div>
 
             <p
-              className="md:text-[22px] 
-            lg:text-3xl 
-            xl:text-[32px] 
+              className="md:text-[1.375rem] 
+            lg:text-[1.875rem]
+            xl:text-[2rem] 
             font-semibold "
             >
               I am a{" "}
@@ -202,9 +208,10 @@ const Home = () => {
             </p>
 
             <p
-              className="md:text-md 
-            lg:text-lg 
-            xl:text-xl  
+              className="md:text-[1.02rem]
+              mdlg:text-[1.06rem]
+            lg:text-[1.125rem]
+            xl:text-[1.25rem]
             font-medium"
             >
               Hi! I am a web app developer passionate about building
@@ -222,27 +229,27 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="w-[40vw] flex justify-center  ">
+          <div className="w-[35vw] flex justify-center  ">
             <div
               className="relative 
-            xl:w-[20rem] 
-            lg:w-[18rem] 
-            md:w-[16rem] "
+            xl:w-[20rem] xl:pt-[2rem]
+            lg:w-[18rem] lg:pt-[2rem]
+            mdlg:w-[16rem] mdlg:pt-[2.1rem]
+            md:w-[14rem] md:pt-[2.2rem]"
             >
               <Symbol
-                width={120}
-                height={120}
-                className="absolute xl:top-12 xl:left-0 lg:top-10 lg:left-0 md:top-8 md:left-0"
+                className="absolute
+                        xl:top-12 xl:left-0 xl:w-[7.5rem] xl:h-[7.5rem]
+                        lg:top-11.5 lg:left-0 lg:w-[7rem] lg:h-[7rem]
+                        mdlg:top-12 mdlg:left-0 mdlg:w-[6.5rem] mdlg:h-[6.5rem]
+                        md:top-12.5 md:left-0 md:w-[6rem]  md:h-[6rem]"
               />
 
               <div>
                 {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
                 <img
                   className="relative 
-                  xl:pt-3 
-                  lg:pt-8 
-                  md:pt-10 
-                  w-[23rem] "
+                  w-full "
                   src={profile}
                   alt="profile"
                 />
@@ -253,9 +260,10 @@ const Home = () => {
                 length={25}
                 className="grid grid-cols-5 gap-1 
                   w-22 h-22 absolute 
-                  xl:top-58 xl:right-2 
-                  lg:top-58 lg:right-2 
-                  md:top-52 md:right-2 
+                  xl:top-58 xl:right-2 xl:w-[5.5rem] xl:h-[5.5rem]
+                  lg:top-55 lg:right-2 lg:w-[5rem] lg:h-[5rem]
+                  mdlg:top-49 mdlg:right-2 mdlg:w-[4.5rem] mdlg:h-[4.5rem]
+                  md:top-44 md:right-2 md:w-[4rem] md:h-[4rem]
                   opacity-70"
               />
             </div>
@@ -271,13 +279,13 @@ const Home = () => {
             <Symbol
               width={60}
               height={60}
-              className={"absolute top-7 left-2"}
+              className={"absolute top-7 left-5"}
             />
 
             <div>
               {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
               <img
-                className="relative z-[0] w-[12rem] "
+                className="relative z-0 w-[12rem] "
                 src={profile}
                 alt="profile image"
               />
@@ -288,7 +296,7 @@ const Home = () => {
               length={16}
               className="grid grid-cols-4 gap-1 
                 w-13 h-13 
-                absolute top-30  right-8 z-[0] opacity-60"
+                absolute top-30  right-8 z-0 opacity-60"
             />
           </div>
           {/* </div> */}
@@ -329,10 +337,10 @@ const Home = () => {
       {/* square svg */}
       <SquareBox
         className={`hidden md:block absolute 
-      md:top-[40rem] md:right-0
-      xl:w-[4rem] xl-h-[4rem]
-      lg:w-[3.2rem] lg-h-[3rem]
-      md:w-[2rem] md-h-[2rem]`}
+                    md:top-[40rem] md:right-0
+                    xl:w-[4rem] xl-h-[4rem]
+                    lg:w-[3.2rem] lg-h-[3rem]
+                    md:w-[2rem] md-h-[2rem]`}
         viewBox="0 0 59 91"
       />
     </div>

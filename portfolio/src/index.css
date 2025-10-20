@@ -1,5 +1,10 @@
 @import "tailwindcss";
-
+@theme {
+  --breakpoint-md: 48rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-mdlg: 56rem; /* Custom breakpoint between md (48rem) and lg (64rem) */
+  
+}
 
 html, body, #root {
   margin: 0;

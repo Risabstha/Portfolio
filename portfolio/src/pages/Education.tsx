@@ -16,7 +16,7 @@ const Education = () => {
       className="  font-['Fira_Code',monospace]   border-1
       md:flex md:justify-center 
       xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
-      md:ml-[1.5rem] lg:ml-[1.5rem] xl:ml-[2rem]"
+      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]"
     >
       <section
         className="relative

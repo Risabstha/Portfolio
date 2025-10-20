@@ -20,51 +20,77 @@ const Nav = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="md:ml-[1.5rem] lg:ml-[1..8rem] xl:ml-[2rem] md:flex md:justify-center font-['Fira_Code',monospace]">
+    <div className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] md:flex md:justify-center font-['Fira_Code',monospace]">
       {/* // sticky works only with its closest ancestor */}
       <nav
-        className={`md:fixed md:top-0 md:z-40 xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  ${
+        className={`md:fixed md:top-0 md:z-40 
+          xl:w-[85vw] lg:w-[90vw] mdlg:w-[93vw] md:w-[95vw] ${
           theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
         }`}
       >
         {/* Desktop NavBar */}
-        <div className=" hidden md:flex md:justify-between md:px-2 xl:px-4 md:py-6 md:text-md lg:text-xl">
-          <div className="flex  md:gap-x-1.5 lg:gap-x-3 cursor-pointer">
+        <div className=" hidden 
+        md:flex md:justify-between 
+        md:px-2 xl:px-4  
+        md:py-6 md:text-[0.9rem] mdlg:text-[1.07rem] lg:text-lg xl:text-xl">
+          <div className="flex  md:gap-x-1 lg:gap-x-2 xl:gap-2.5 cursor-pointer">
             {theme === "dark" ? (
-              <img className="w-[22px] h-[22px] mt-1 " src={logo} alt="logo" />
+              <img className="xl:w-[22px] lg:w-[20px] mdlg:w-[18px] md:w-[16px] 
+                              xl:h-[22px] lg:h-[20px] mdlg:h-[18px] md:h-[16px] 
+                            mt-1 " src={logo} alt="logo" />
             ) : (
-              <img className="w-[22px] h-[22px] mt-1 " src={logo1} alt="logo" />
+              <img className="xl:w-[22px] lg:w-[20px] mdlg:w-[18px] md:w-[16px] 
+                              xl:h-[22px] lg:h-[20px] mdlg:h-[18px] md:h-[16px] 
+                              mt-1 " src={logo1} alt="logo" />
             )}
             <span className="pt-0.5">Risab Shrestha</span>
           </div>
 
-          <ul className="flex md:gap-x-0 lg:gap-x-1 xl:gap-x-5">
+          <ul className="flex md:gap-x-0 lg:gap-x-[0.70vw] xl:gap-x-[1.3vw]">
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                              xl:py-[0.30rem] lg:py-[0.28rem] m mdlg:py-[0.22rem] md:py-[0.15rem] 
+                              ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>home</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
+                                ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>skills</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
+                                ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>projects</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
+                                ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>experience</span>
             </li>
             <li className="flex  px-2 py-1 cursor-pointer">
-              <span className={` md:text-md lg:text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
+                                ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                <HiHashtag />
+              </span>
+              <span>education</span>
+            </li>
+            <li className="flex  px-2 py-1 cursor-pointer">
+              <span className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
+                                ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                 <HiHashtag />
               </span>
               <span>contact</span>
@@ -80,11 +106,11 @@ const Nav = () => {
         <div className= {`md:hidden fixed w-[100vw] z-[999] top-0 left-0  ${
           theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
         }`} >
-          <div className="flex justify-between gap-x-3 text-md  pb-4 px-4 py-3 ">
+          <div className="flex justify-between gap-x-3 text-[1.2rem]  pb-4 px-4 py-3 ">
             <div className="flex  gap-x-3 cursor-pointer">
               {theme === "dark" ? (
                 <img
-                  className="w-[22px] h-[22px] mt-1 "
+                  className="w-[20px] h-[20px] mt-1 "
                   src={logo}
                   alt="logo"
                 />
@@ -102,7 +128,7 @@ const Nav = () => {
                 <ThemeToggle />
               </div>
               <span
-                className="text-2xl cursor-pointer"
+                className="text-[1.8rem] cursor-pointer"
                 onClick={() => ThreedotOpen()}
               >
                 {threedot ? <IoClose /> : <BsThreeDots />}
@@ -112,37 +138,43 @@ const Nav = () => {
           {threedot && (
             <div className="">
               <ul
-                className={`gap-x-5  w-[100vw] text-xl ${
+                className={`gap-x-5  w-screen text-xl ${
                   theme === "dark" ? "bg-[#292828]" : "bg-[#e4e4e4]"
                 }`}
               >
                 <li className="flex px-8  pt-3 pb-1.5 cursor-pointer  ">
-                  <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
 
                   <span>home</span>
                 </li>
                 <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
-                  <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
                   <span>skills</span>
                 </li>
                 <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
-                  <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
                   <span>projects</span>
                 </li>
-                <li className="flex  px-8 pt-1.5 pb-3 cursor-pointer">
-                  <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
                   <span>experience</span>
                 </li>
+                <li className="flex  px-8 pt-1.5 pb-1.5 cursor-pointer">
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                    <HiHashtag />
+                  </span>
+                  <span>education</span>
+                </li>
                 <li className="flex  px-8 pt-1.5 pb-3 cursor-pointer">
-                  <span className={` text-xl py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
+                  <span className={` text-[1.1rem] py-1.5  ${theme === 'dark' ? "text-[#C778DD]" : "text-[#a840c5]"}`}>
                     <HiHashtag />
                   </span>
                   <span>contact</span>
