@@ -147,17 +147,23 @@ const Home = () => {
   }, [state.displayed, state.phase, state.index]);
 
   return (
-    <div className="  font-['Fira_Code',monospace] 
-    xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem] border-1 ">
+    <div
+      className="  font-['Fira_Code',monospace] 
+    xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem] "
+    >
       {/* Desktop view */}
-      <div className="hidden md:flex md:justify-center 
+      <div
+        className="hidden md:flex md:justify-center border-1
       md:ml-[1.5rem] 
       lg:ml-[1.5rem] 
-      xl:ml-[2rem]">
-        <div className="flex  
-        xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  
+      xl:ml-[2rem]"
+      >
+        <div
+          className="flex border-1 
+        xl:w-[80vw] lg:w-[85vw] md:w-[88vw] 
         md:gap-[2rem]  lg:gap-[4rem]   xl:gap-[6rem]  
-        pt-[10rem] px-4 ">
+        pt-[10rem] px-4 "
+        >
           <div className="w-[60vw] pt-0   space-y-4">
             <div className="space-x-4">
               <p
@@ -166,10 +172,10 @@ const Home = () => {
                   xl:text-[45px] 
                   font-semibold`}
               >
-                Hi, I am 
+                Hi, I am
               </p>
-              <p 
-               className={`md:text-[30px] 
+              <p
+                className={`md:text-[30px] 
                   lg:text-[40px] 
                   xl:text-[45px] 
                   font-semibold`}
@@ -178,10 +184,12 @@ const Home = () => {
               </p>
             </div>
 
-            <p className="md:text-[22px] 
+            <p
+              className="md:text-[22px] 
             lg:text-3xl 
             xl:text-[32px] 
-            font-semibold ">
+            font-semibold "
+            >
               I am a{" "}
               <span
                 className={` pr-1  ${
@@ -193,10 +201,12 @@ const Home = () => {
               </span>
             </p>
 
-            <p className="md:text-md 
+            <p
+              className="md:text-md 
             lg:text-lg 
             xl:text-xl  
-            font-medium">
+            font-medium"
+            >
               Hi! I am a web app developer passionate about building
               cross-platform apps with React. I focus on creating smooth,
               user-friendly experiences for web application. I also work with
@@ -204,23 +214,25 @@ const Home = () => {
               real-world problems and exploring new tech along the way.
             </p>
 
-            <div className=" py-3  w-[10rem] 
-            animate__animated animate__slideInRight transition-all duration-600 ease-in-out">
+            <div
+              className=" py-3  w-[10rem] 
+            animate__animated animate__slideInRight transition-all duration-600 ease-in-out"
+            >
               <DownloadButton />
             </div>
           </div>
 
           <div className="w-[40vw] flex justify-center  ">
-            <div className="relative 
+            <div
+              className="relative 
             xl:w-[20rem] 
             lg:w-[18rem] 
-            md:w-[16rem] ">
-
+            md:w-[16rem] "
+            >
               <Symbol
                 width={120}
                 height={120}
-                className= "absolute xl:top-12 xl:left-0 lg:top-10 lg:left-0 md:top-8 md:left-0"
-                
+                className="absolute xl:top-12 xl:left-0 lg:top-10 lg:left-0 md:top-8 md:left-0"
               />
 
               <div>
@@ -253,9 +265,9 @@ const Home = () => {
 
       {/* mobile view */}
       <div className="md:hidden flex justify-center pb-10">
-        <div className=" w-[100vw] pt-[5rem] px-4 ">
+        <div className=" w-[100vw] pt-[5rem] ">
           {/* <div className="flex justify-center  z-0"> */}
-          <div className="relative z-[0]  m-auto w-[15rem] flex justify-center ">
+          <div className="relative z-[0] m-auto w-[15rem] flex justify-center ">
             <Symbol
               width={60}
               height={60}
@@ -304,8 +316,10 @@ const Home = () => {
               the MERN stack to build full solutions when needed. I love solving
               real-world problems and exploring new tech along the way.
             </p>
-            <div className=" py-3 mt-2 w-[10rem] 
-            animate__animated animate__slideInRight transition-all duration-600 ease-in-out">
+            <div
+              className=" py-3 mt-2 w-[10rem] 
+            animate__animated animate__slideInRight transition-all duration-600 ease-in-out"
+            >
               <DownloadButton />
             </div>
           </div>
@@ -313,13 +327,14 @@ const Home = () => {
       </div>
 
       {/* square svg */}
-      <SquareBox className={`hidden md:block absolute 
+      <SquareBox
+        className={`hidden md:block absolute 
       md:top-[40rem] md:right-0
       xl:w-[4rem] xl-h-[4rem]
       lg:w-[3.2rem] lg-h-[3rem]
       md:w-[2rem] md-h-[2rem]`}
-       viewBox="0 0 59 91"/>
-      
+        viewBox="0 0 59 91"
+      />
     </div>
   );
 };

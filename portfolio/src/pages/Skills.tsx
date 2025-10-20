@@ -29,17 +29,20 @@ import { IoLogoFigma, IoLogoFirebase } from "react-icons/io5";
 const Skills = () => {
   const { theme } = useTheme();
   return (
-    <div className="  font-['Fira_Code',monospace]   border-1
+    <div
+      className="  font-['Fira_Code',monospace]   border-1
       md:flex md:justify-center 
-      xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]">
+      xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
+      md:ml-[1.5rem] lg:ml-[1.5rem] xl:ml-[2rem]"
+    >
       <section
-        className="relative
+        className="relative border-1
         xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
         xl:px-4 lg:px-3 md:px-1"
       >
         {/* skills section Heading */}
-        <div className="flex justify-center  md:justify-start px-2 py-1 cursor-pointer pb-6 md:pb-8 lg:pb-10">
+        <div className="flex justify-center  md:justify-start py-1 cursor-pointer pb-6 md:pb-8 lg:pb-10">
           <span
             className={`text-2xl md:border-b-0 border-b-2 md:text-3xl lg:text-4xl py-1.5  ${
               theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
@@ -47,7 +50,9 @@ const Skills = () => {
           >
             <HiHashtag />
           </span>
-          <span className="text-2xl md:border-b-0 border-b-2 md:text-3xl lg:text-4xl pt-0.5">skills</span>
+          <span className="text-2xl md:border-b-0 border-b-2 md:text-3xl lg:text-4xl pt-0.5">
+            skills
+          </span>
           <span
             className={`hidden md:block lg:w-[16rem] md:w-[14rem] xl:w-[20rem] border-t-2 mt-6 ml-5  ${
               theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
@@ -58,44 +63,39 @@ const Skills = () => {
         {/* Skills section content */}
         <div className="md:flex md:justify-between    ">
           <div className="hidden md:block relative w-[30vw]">
+            {/* Top-left dots */}
             <DotGrid
               length={25}
               className={`grid grid-cols-5 gap-1 absolute 
-                xl:top-10 xl:left-0 xl:ml-8 xl:w-18 xl:h-18
-                lg:top-9 lg:left-0 lg:ml-6 lg:w-16 lg:h-16
-                md:top-13 md:left-0 md:ml-4 md:w-10 md:h-10
-                opacity-70`}
+                        top-[2vw] left-[0vw] ml-[2vw] w-[5.5vw] h-[5.5vw]
+                        opacity-70`}
             />
 
+            {/* Top square */}
             <SquareBox
               className="hidden md:block absolute 
-                xl:top-[0rem] xl:left-65 xl:w-25 xl:h-25
-                lg:top-[0rem] lg:left-55 lg:w-20 lg:h-20      
-                md:top-[2rem] md:left-30 md:w-14 md:-14 "  
+                        top-[0vw] left-[18vw] w-[6.5vw] h-[6.5vw]"
               viewBox="0 0 91 91"
             />
 
+            {/* Center symbol */}
             <Symbol
               className="absolute 
-              xl:top-50 xl:left-16 xl:w-28 xl:h-28
-              lg:top-48 lg:left-9 lg:w-24 lg:h-24
-              md:top-40 md:left-4 md:w-18  md:h-18 "
+                        top-[12vw] left-[4vw] w-[7.5vw] h-[7.5vw]"
             />
 
+            {/* Mid-right dots */}
             <DotGrid
               length={25}
               className={`grid grid-cols-5 gap-1 absolute 
-                xl:top-42 xl:left-56 xl:w-18 xl:h-18
-                lg:top-44 lg:left-44 lg:w-16 lg:h-16
-                md:top-36 md:left-27 md:w-10 md:h-10
-                opacity-70`}
+                        top-[10vw] left-[15vw] w-[4.5vw] h-[4.5vw]
+                        opacity-70`}
             />
 
+            {/* Bottom small square */}
             <SquareBox
-              className=" absolute 
-            xl:top-[13.5rem] xl:left-85 xl:w-[4.5rem] xl:h-[4.5rem]
-            lg:top-[12rem] lg:left-70 lg:w-[3.5rem] lg:h-[3.5rem]
-            md:top-[11rem] md:left-42 md:w-[2.5rem] md:h-[2.5rem]"
+              className="absolute 
+                        top-[15vw] left-[22.5vw] w-[4vw] h-[4vw]"
               viewBox="0 0 91 91"
             />
           </div>
@@ -112,10 +112,18 @@ const Skills = () => {
           >
             <div
               className="flex md:flex-row 
-            flex-col md:flex md:gap-x-4 xl:gap-x-6 gap-y-4"
+              flex-col md:flex md:gap-x-4 xl:gap-x-6 gap-y-4"
             >
-              <div className={`border-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}  w-[15rem] md:w-[9rem] lg:w-[9.2rem] xl:w-[11rem]`}>
-                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
+              <div
+                className={`border-2 ${
+                  theme === "dark" ? "border-gray-400" : "border-gray-600"
+                }  w-[15rem] md:w-[9rem] lg:w-[9.2rem] xl:w-[11rem]`}
+              >
+                <div
+                  className={`font-semibold border-b-2 p-2 ${
+                    theme === "dark" ? "border-gray-400" : "border-gray-600"
+                  } mb-2`}
+                >
                   languages
                 </div>
                 <div className="px-3 py-2">
@@ -134,8 +142,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
-                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
+              <div
+                className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${
+                  theme === "dark" ? "border-gray-400" : "border-gray-600"
+                }`}
+              >
+                <div
+                  className={`font-semibold border-b-2 p-2 ${
+                    theme === "dark" ? "border-gray-400" : "border-gray-600"
+                  } mb-2`}
+                >
                   databases
                 </div>
                 <div className="px-3 py-2">
@@ -150,8 +166,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
-                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
+              <div
+                className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem] ${
+                  theme === "dark" ? "border-gray-400" : "border-gray-600"
+                }`}
+              >
+                <div
+                  className={`font-semibold border-b-2 p-2 ${
+                    theme === "dark" ? "border-gray-400" : "border-gray-600"
+                  } mb-2`}
+                >
                   tools
                 </div>
                 <div className="px-3 py-2">
@@ -229,8 +253,16 @@ const Skills = () => {
               className="flex flex-col
             md:flex md:flex-row md: justify-end md:gap-x-4 xl:gap-x-6 gap-y-4"
             >
-              <div className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
-                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
+              <div
+                className={`border-2 border-gray-400 w-[15rem] md:w-[7rem] lg:w-[7.5rem] xl:w-[9rem] ${
+                  theme === "dark" ? "border-gray-400" : "border-gray-600"
+                }`}
+              >
+                <div
+                  className={`font-semibold border-b-2 p-2 ${
+                    theme === "dark" ? "border-gray-400" : "border-gray-600"
+                  } mb-2`}
+                >
                   others
                 </div>
                 <div className="px-3 py-2">
@@ -245,8 +277,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem]  ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}`}>
-                <div className={`font-semibold border-b-2 p-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} mb-2`}>
+              <div
+                className={`border-2 border-gray-400 w-[15rem] md:w-[12.5rem] lg:w-[14rem] xl:w-[16rem]  ${
+                  theme === "dark" ? "border-gray-400" : "border-gray-600"
+                }`}
+              >
+                <div
+                  className={`font-semibold border-b-2 p-2 ${
+                    theme === "dark" ? "border-gray-400" : "border-gray-600"
+                  } mb-2`}
+                >
                   frameworks
                 </div>
                 <div className="px-3 py-2">

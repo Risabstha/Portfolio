@@ -6,6 +6,7 @@ import Nav from '../layout/Nav'
 import Skills from './Skills'
 import Projects from './Projects'
 import Experiences from './Experiences'
+import Education from './Education'
 
 const MainHome = () => {
   return (
@@ -18,6 +19,7 @@ const MainHome = () => {
       <Skills/>
       <Projects/>
       <Experiences/>
+      <Education/>
     </div>
   )
 }

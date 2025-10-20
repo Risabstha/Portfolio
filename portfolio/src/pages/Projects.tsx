@@ -12,11 +12,12 @@ const Projects = () => {
     <div
       className="relative font-['Fira_Code',monospace]  border-1
                    md:flex md:justify-center 
-                   xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]"
+                   xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
+                   md:ml-[1.5rem] lg:ml-[1.5rem] xl:ml-[2rem]"
     >
       <section
         className="relative
-            xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  
+            xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  border-1
             md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
             xl:px-4 lg:px-3 md:px-1"
       >
@@ -24,7 +25,7 @@ const Projects = () => {
         <div
           className="flex justify-center  
                      md:justify-between 
-                     px-2 py-1 cursor-pointer 
+                     py-1 cursor-pointer 
                      pb-6 md:pb-8 lg:pb-10 "
         >
           <div className="flex">
@@ -81,7 +82,7 @@ const Projects = () => {
         className= {`hidden md:grid grid-cols-2 gap-1 absolute
                   xl:w-12 lg:w-10 md:w-8
                   xl:h-25  lg:h-23 md:h-20
-                  xl:top-45 xl:left-5 
+                  xl:top-45 xl:-left-5 
                   lg:top-45 lg:left-3
                   md:top-45 md:left-2 
                   opacity-70`}

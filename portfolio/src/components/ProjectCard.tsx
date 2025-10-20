@@ -24,23 +24,23 @@ const ProjectCard: React.FC<ChertNodesCardProps> = ({
 
   return (
     <div
-      className="border-2 border-gray-400   shadow-lg
+      className={`border-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}   shadow-lg
                 font-['Fira_Code',monospace]
                  group grid grid-rows-[auto_auto_1fr] 
-                 xl:w-[25vw] lg:w-[26.8vw] md:w-[40vw] sm:w-[340px] w-[310px]
+                 xl:w-[25vw] lg:w-[26.8vw] md:w-[40vw] w-[94vw]
                  max-h-[580px]
-                 overflow-hidden hover:shadow-[#ff7f50]/20 transition-shadow duration-300"
+                 overflow-hidden hover:shadow-[#ff7f50]/20 transition-shadow duration-300`}
     >
       {/* Top Logo Section */}
       <div
-        className="relative border-b-2 border-gray-400 flex flex-col gap-2 w-full 
-                        max-w-[400px] max-h-[225px]"
+        className={`relative border-b-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} flex flex-col gap-2 w-full 
+                        max-w-[400px] max-h-[225px]`}
       >
         <img src={liveUrl} alt={altText} />
         {/** pluse-ring is a css class from styles pulse.css */}
           <div className="pulse-ring absolute w-[35px] h-[35px] top-4 right-5 z-0"></div> 
           <Link
-          className="absolute top-4 right-5 z-50"
+          className="absolute top-4 right-5 "
           to="https://github.com/Risabstha?tab=repositories"
           target="_blank"
         >
@@ -55,12 +55,12 @@ const ProjectCard: React.FC<ChertNodesCardProps> = ({
 
       {/* Tags */}
       <div
-        className=" border-b-2 border-gray-400 flex flex-wrap gap-3 py-1 px-4.5"
+        className= {`border-b-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"} flex flex-wrap gap-3 py-1 px-4.5`}
       >
         {tags.map((tag) => (
           <span
             key={tag}
-            className={`px-2 py-0.5  ${theme === "dark" ? "text-gray-400" : "text-gray-700" }
+            className={`px-2 py-0.5 border-1  ${theme === "dark" ? "border-[#C778DD] text-gray-400" : "border-[#a840c5] text-gray-700" }
                        xl:text-[16px] lg:text-[15px] md:text-[14px] tracking-wide`}
           >
             {tag}
