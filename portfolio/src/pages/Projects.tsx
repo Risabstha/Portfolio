@@ -10,14 +10,14 @@ const Projects = () => {
   const { theme } = useTheme();
   return (
     <div
-      className="relative font-['Fira_Code',monospace]  border-1
+      className="relative font-['Fira_Code',monospace]  
                    md:flex md:justify-center 
-                   xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
+                   xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
                    md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]"
     >
       <section
         className="relative
-            xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  border-1
+            xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw] 
             md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
             xl:px-4 lg:px-3 md:px-1"
       >
@@ -60,13 +60,15 @@ const Projects = () => {
 
         {/* rendering projects */}
         {/* justify-items-center le grid ko each cell lai center gardinxa , justify-center le purai grid lai center garxa */}
-        <div className=" w-full grid 
+        <div
+          className=" w-full grid 
         xl:grid-cols-3 xl:gap-4
         lg:grid-cols-3 lg:gap-3 lg:mx-2
         md:grid-cols-2 md:gap-x-0 md:mx-3 md:justify-items-center md:gap-y-[3.5vw]
-        grid-col-1 gap-y-8 justify-center">
+        grid-col-1 gap-y-8 justify-center"
+        >
           {ProjectDetails.map((data) => (
-            <ProjectCard 
+            <ProjectCard
               key={data.id}
               title={data.title}
               description={data.description}
@@ -79,20 +81,21 @@ const Projects = () => {
 
       <DotGrid
         length={10}
-        className= {`hidden md:grid grid-cols-2 gap-1 absolute
+        className={`hidden md:grid grid-cols-2 gap-1 absolute
                   xl:w-12 lg:w-10 md:w-8
                   xl:h-25  lg:h-23 md:h-20
                   xl:top-45 xl:-left-5 
-                  lg:top-45 lg:left-3
-                  md:top-45 md:left-2 
+                  lg:top-45 lg:-left-4
+                  md:top-45 md:-left-3 
                   opacity-70`}
       />
       <SquareBox
         className={`hidden md:block absolute 
-      md:top-[20rem] md:right-0
-      xl:w-[4rem] xl-h-[4rem]
-      lg:w-[3.2rem] lg-h-[3rem]
-      md:w-[2rem] md-h-[2rem]`}
+                md:top-[20rem] md:right-0
+                xl:w-[4rem] 
+                lg:w-[3.1rem] 
+                mdlg:w-[1.9rem]
+                md:w-[1.5rem] `}
         viewBox="0 0 39 91"
       />
     </div>

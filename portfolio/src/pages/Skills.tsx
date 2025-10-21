@@ -30,23 +30,28 @@ const Skills = () => {
   const { theme } = useTheme();
   return (
     <div
-      className="  font-['Fira_Code',monospace]   border-1
-      md:flex md:justify-center 
-      xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
-      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] "
+      className="  font-['Fira_Code',monospace] 
+                md:flex md:justify-center 
+                xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
+                md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] "
     >
       <section
-        className="relative border-1
-        xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  
-        md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
-        xl:px-4 lg:px-3 md:px-1"
+        className="relative 
+                    xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]  
+                    md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
+                    xl:px-4 lg:px-3 md:px-1"
       >
         {/* skills section Heading */}
-        <div className="flex justify-center  md:justify-start py-1 cursor-pointer pb-6 md:pb-8 lg:pb-10">
+        <div
+          className="flex justify-center  
+                        md:justify-start py-1 cursor-pointer
+                        pb-6  md:pb-8 lg:pb-10"
+        >
           <span
-            className={`text-2xl md:border-b-0 border-b-2 md:text-3xl lg:text-4xl py-1.5  ${
-              theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-            }`}
+            className={`text-2xl md:border-b-0 border-b-2 
+                        md:text-3xl lg:text-4xl py-1.5  ${
+                          theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
+                        }`}
           >
             <HiHashtag />
           </span>
@@ -61,52 +66,56 @@ const Skills = () => {
         </div>
 
         {/* Skills section content */}
-        <div className="md:flex md:justify-between    ">
+        <div className="md:flex md:justify-between   ">
           <div className="hidden md:block relative w-[30vw]">
-            {/* Top-left dots */}
             <DotGrid
               length={25}
-              className={`grid grid-cols-5 gap-1 absolute 
-                        top-[2vw] left-[0vw] ml-[2vw] w-[5.5vw] h-[5.5vw]
-                        opacity-70`}
+              className="grid grid-cols-5 gap-1 absolute 
+              xl:top-[12vh] xl:left-[0.2vw] xl:ml-8 xl:w-18 xl:h-18 
+              lg:top-[11vh] lg:left-[0.2vw] lg:ml-6 lg:w-16 lg:h-16 
+              mdlg:top-[11vh] mdlg:left-[0.2vw] mdlg:ml-4 mdlg:w-14 mdlg:h-14
+              md:top-[12vh] md:left-[0.1vw] md:ml-3.5 md:w-11 md:h-11 opacity-70"
             />
-
-            {/* Top square */}
             <SquareBox
               className="hidden md:block absolute 
-                        top-[0vw] left-[18vw] w-[6.5vw] h-[6.5vw]"
+              xl:top-[8vh] xl:left-[18vw] xl:w-25 xl:h-25 
+              lg:top-[7vh] lg:left-[18vw]  lg:w-20 lg:h-20 
+              mdlg:top-[7vh] mdlg:left-[18vw]  mdlg:w-15 mdlg:h-15
+              md:top-[8vh] md:left-[16vw]  md:w-[3.38rem] md:h-[3.38rem]"
               viewBox="0 0 91 91"
             />
-
-            {/* Center symbol */}
             <Symbol
               className="absolute 
-                        top-[12vw] left-[4vw] w-[7.5vw] h-[7.5vw]"
+              xl:top-[36vh] xl:left-[4vw] xl:w-28 xl:h-28 
+              lg:top-[34vh] lg:left-[4vw] lg:w-24 lg:h-24 
+              mdlg:top-[30vh] mdlg:left-[4vw] mdlg:w-19 mdlg:h-19
+              md:top-[26vh] md:left-[3vw] md:w-17 md:h-17 "
             />
-
-            {/* Mid-right dots */}
             <DotGrid
               length={25}
-              className={`grid grid-cols-5 gap-1 absolute 
-                        top-[10vw] left-[15vw] w-[4.5vw] h-[4.5vw]
-                        opacity-70`}
+              className="grid grid-cols-5 gap-1 absolute 
+               xl:top-[32vh] xl:left-[15vw] xl:w-18 xl:h-18 
+               lg:top-[30vh] lg:left-[16vw] lg:w-16 lg:h-16
+               mdlg:top-[26vh] mdlg:left-[14.5vw] mdlg:w-[3.38rem] mdlg:h-[3.38rem] 
+               md:top-[23vh] md:left-[13.5vw] md:w-11 md:h-11 opacity-70"
             />
-
-            {/* Bottom small square */}
             <SquareBox
-              className="absolute 
-                        top-[15vw] left-[22.5vw] w-[4vw] h-[4vw]"
+              className=" absolute 
+                xl:top-[39vh] xl:left-[22.5vw] xl:w-18 xl:h-18 
+                lg:top-[37vh] lg:left-[23.5vw] lg:w-16 lg:h-16 
+                mdlg:top-[31.5vh] mdlg:left-[22.5vw] mdlg:w-13 mdlg:h-13
+                md:top-[27.5vh] md:left-[21.5vw] md:w-11 md:h-11"
               viewBox="0 0 91 91"
             />
           </div>
 
-          {/* Grid Boxes Design*/}
+          {/* skills Boxes Design*/}
           <div
             className="md:flex flex flex-col gap-y-3
-                        md:justify-end md:gap-y-4 xl:gap-y-6 md:max-w-[100rem]
-                        xl:text-xl
-                        lg:text-[16px]
-                        md:text-sm
+                        md:justify-end md:gap-y-4  md:max-w-[100rem]
+                        xl:text-[1.2rem] xl:gap-y-6
+                        lg:text-[1rem]
+                        md:text-[0.875rem]
                         text-lg 
                         items-center md:items-end"
           >

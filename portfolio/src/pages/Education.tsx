@@ -15,12 +15,12 @@ const Education = () => {
     <div
       className="  font-['Fira_Code',monospace]   border-1
       md:flex md:justify-center 
-      xl:pb-[10rem] lg:pb-[9rem] md:pb-[8rem] pb-[7rem]
+      xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
       md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]"
     >
       <section
         className="relative
-        xl:w-[80vw] lg:w-[85vw] md:w-[88vw]  border-1
+        xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   border-1
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
         xl:px-4 lg:px-3 md:px-1"
       >
