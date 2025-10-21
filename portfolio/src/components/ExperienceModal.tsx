@@ -50,11 +50,11 @@ const ExperienceModal = ({
             rounded-full bg-white p-1"
           />
           <div>
-            <h2 className="xl:text-[20px] lg:text-[19px] md:text-[18px] text-[18px] font-semibold">
+            <h2 className="xl:text-[1.24rem] lg:text-[1.1875rem] md:text-[1.125rem] text-[1.125rem] font-semibold">
               {title}
             </h2>
             <p
-              className={`xl:text-[18px] lg:text-[16px] md:text-[14.5px] text-[14.5px] ${
+              className={`xl:text-[1.125rem] lg:text-[1rem] md:text-[0.9063rem] text-[0.9063rem] ${
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               }`}
             >
@@ -62,7 +62,7 @@ const ExperienceModal = ({
             </p>
 
             <p
-              className={`xl:text-[14px] lg:text-[13px] md:text-[12.5px] text-[12.5px] ${
+              className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] ${
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               }`}
             >
@@ -70,7 +70,7 @@ const ExperienceModal = ({
             </p>
             {grade && (
               <p
-                className={`xl:text-[14px] lg:text-[13px] md:text-[12.5px] text-[12.5px] 
+                className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] 
                               ${
                                 theme === "dark"
                                   ? "text-gray-100"
@@ -85,7 +85,7 @@ const ExperienceModal = ({
 
         {/* Description */}
         <p
-          className={`xl:text-[16px] lg:text-[14px] md:text-[13.5px] text-[13.5px]
+          className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem]
                      ${
                        theme === "dark" ? "text-gray-300" : "text-gray-800"
                      } leading-relaxed mb-4`}
@@ -98,7 +98,7 @@ const ExperienceModal = ({
         <div>
           {skills && (
             <h3
-              className={`xl:text-[16px] lg:text-[14px] md:text-[13.5px] text-[13.5px] ${
+              className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem] ${
                 theme === "dark" ? "text-gray-200" : "text-gray-900"
               } mb-2 font-medium`}
             >
@@ -113,7 +113,7 @@ const ExperienceModal = ({
               ) => (
                 <span
                   key={i}
-                  className={`xl:text-[14px] lg:text-[13px] md:text-[12.5px] text-[12.5px] border-1  ${
+                  className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] border-1  ${
                     theme === "dark"
                       ? "border-[#C778DD] text-gray-200"
                       : "border-[#a840c5] text-gray-900"
