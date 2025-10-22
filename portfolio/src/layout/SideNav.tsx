@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function SideNav() {
   const { theme } = useTheme();
   return (
-    <div className=" md:h-full md:w-[2.5rem] lg:w-[3rem] xl:w-[4rem] md:items-center md:justify-end md:pb-6 md:fixed md:top-0">   {/** fixed SideNav */}
+    <div className=" md:h-full md:w-[2.5rem] lg:w-[3rem] xl:w-[4rem] 2xl:w-[6rem] md:items-center md:justify-end md:pb-6 md:fixed md:top-0">   {/** fixed SideNav */}
       <div className="flex flex-col items-center space-y-2 relative">
         {/* Vertical line */}
         <div className=" h-50 w-[1px] bg-gray-500 " />

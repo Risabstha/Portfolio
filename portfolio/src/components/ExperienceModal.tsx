@@ -2,6 +2,7 @@ import { useTheme } from "../stores/ThemeProvider";
 
 interface experience {
   logo: string;
+  threexlwidth : string;
   xlwidth :string;
   lgwidth : string;
   mdwidth : string;
@@ -16,6 +17,7 @@ interface experience {
 
 const ExperienceModal = ({
   logo,
+  threexlwidth,
   xlwidth,
   lgwidth,
   mdwidth,
@@ -31,13 +33,13 @@ const ExperienceModal = ({
 
   return (
     <div
-      className={`${xlwidth} ${lgwidth} ${mdwidth} ${width}
+      className={`${threexlwidth} ${xlwidth} ${lgwidth} ${mdwidth} ${width}
             border-2 shadow-md ${
               theme === "dark" ? "border-gray-400" : "border-gray-600"
             }`}
     >
       <div
-        className="max-w-2xl 
+        className="max-w-2xl 2xl:max-w-4xl 3xl:max-w-[75rem]
                      mx-auto px-6 py-6  shadow-lg"
       >
         {/* Header Section */}

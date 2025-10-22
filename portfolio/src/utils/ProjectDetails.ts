@@ -19,6 +19,13 @@ export const ProjectDetails: project[] = [
     description:
       "A MERN stack web application that allows users to find and book movies. Features include JWT authentication,2FA for security, and potentially recommendation algorithms for movie suggestions.",
     tags: ["JS", "CSS", "Tailwind CSS", "React", "Node", "Express"],
+  },{
+    id: 5,
+    url: meeting,   // imported image url
+    title: "Meeting Management System",
+    description:
+      "A MERN stack web application that allows users to find and book movies. Features include JWT authentication,2FA for security, and potentially recommendation algorithms for movie suggestions.",
+    tags: ["JS", "CSS", "Tailwind CSS", "React", "Node", "Express"],
   },
   {
     id: 2,

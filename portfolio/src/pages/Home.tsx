@@ -148,17 +148,17 @@ const Home = () => {
 
   return (
     <div
-      className="  font-['Fira_Code',monospace] 
+      className="  font-['Fira_Code',monospace] border
     xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem] "
     >
       {/* Desktop view */}
       <div
-        className="hidden md:flex md:justify-center 
-      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem]"
+        className="hidden md:flex md:justify-center border
+      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem]"
       >
         <div
-          className="flex  
-        xl:w-[80vw] lg:w-[85vw] md:w-[88vw] 
+          className="flex   border
+        2xl:w-[75vw] xl:w-[80vw] lg:w-[85vw] md:w-[88vw] 
         md:gap-[2rem] mdlg:gap-[2.5rem] lg:gap-[3rem]  xl:gap-[3.4rem]  
         pt-[10rem] px-4 "
         >
@@ -334,7 +334,8 @@ const Home = () => {
       {/* square svg */}
       <SquareBox
         className={`hidden md:block absolute 
-                    md:top-[40rem] md:right-0
+                    2xl:top-[40rem] xl:top-[40rem] md:right-0 lg:top-[38rem] md:top-[36rem]
+                    2xl:w-[5rem]
                     xl:w-[4rem] xl-h-[4rem]
                     lg:w-[3.2rem] lg-h-[3rem]
                     md:w-[2rem] md-h-[2rem]`}

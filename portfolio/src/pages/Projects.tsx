@@ -10,14 +10,14 @@ const Projects = () => {
   const { theme } = useTheme();
   return (
     <div
-      className="relative font-['Fira_Code',monospace]  
+      className="relative font-['Fira_Code',monospace] border 
                    md:flex md:justify-center 
                    xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
-                   md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]"
+                   md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]  xl:ml-[2rem] 2xl:ml-[3rem] "
     >
       <section
-        className="relative
-            xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw] 
+        className="relative border
+              2xl:w-[75vw] xl:w-[80vw]  lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw] 
             md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
             xl:px-4 lg:px-3 md:px-1"
       >
@@ -62,8 +62,9 @@ const Projects = () => {
         {/* justify-items-center le grid ko each cell lai center gardinxa , justify-center le purai grid lai center garxa */}
         <div
           className=" w-full grid 
+          2xl:grid-cols-4 2xl:gap-4
         xl:grid-cols-3 xl:gap-4
-        lg:grid-cols-3 lg:gap-3 lg:mx-2
+        lg:grid-cols-3 lg:gap-3 lg:mx-2 
         md:grid-cols-2 md:gap-x-0 md:mx-3 md:justify-items-center md:gap-y-[3.5vw]
         grid-col-1 gap-y-8 justify-center"
         >

@@ -1,9 +1,12 @@
 @import "tailwindcss";
 @theme {
-  --breakpoint-md: 48rem;
   --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
   --breakpoint-mdlg: 56rem; /* Custom breakpoint between md (48rem) and lg (64rem) */
-  
+  --breakpoint-lg:64rem; 
+  --breakpoint-xl:80rem;
+  --breakpoint-2xl: 110rem;
+  --breakpoint-3xl: 179rem; /* for skills section  */
 }
 
 html, body, #root {

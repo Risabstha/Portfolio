@@ -20,11 +20,12 @@ const Nav = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] md:flex md:justify-center font-['Fira_Code',monospace]">
+    <div className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] border 
+    xl:ml-[2rem] 2xl:ml-[3rem] md:flex md:justify-center font-['Fira_Code',monospace]">
       {/* // sticky works only with its closest ancestor */}
       <nav
-        className={`md:fixed md:top-0 md:z-40 
-          xl:w-[85vw] lg:w-[90vw] mdlg:w-[93vw] md:w-[95vw] ${
+        className={`md:fixed md:top-0 md:z-40 border
+          2xl:w-[80vw] xl:w-[85vw] lg:w-[90vw] mdlg:w-[93vw] md:w-[95vw] ${
           theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
         }`}
       >
@@ -32,7 +33,7 @@ const Nav = () => {
         <div className=" hidden 
         md:flex md:justify-between 
         md:px-2 xl:px-4  
-        md:py-6 md:text-[0.9rem] mdlg:text-[1.07rem] lg:text-lg xl:text-xl">
+        md:py-6 md:text-[0.9rem] mdlg:text-[1.07rem] lg:text-lg xl:text-xl 2xl:text-2xl">
           <div className="flex  md:gap-x-1 lg:gap-x-2 xl:gap-2.5 cursor-pointer">
             {theme === "dark" ? (
               <img className="xl:w-[22px] lg:w-[20px] mdlg:w-[18px] md:w-[16px] 

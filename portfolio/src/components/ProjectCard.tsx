@@ -28,8 +28,8 @@ const ProjectCard: React.FC<ChertNodesCardProps> = ({
       className={`border-2 ${theme === 'dark' ? "border-gray-400" : "border-gray-600"}   shadow-lg
                 font-['Fira_Code',monospace]
                  group grid grid-rows-[auto_auto_1fr] 
-                 xl:w-[25vw] lg:w-[26.8vw] md:w-[40vw] w-[94vw]   
-                 max-h-[36.25rem]
+                 2xl:w-[17.5vw] xl:w-[25vw] lg:w-[26.8vw] md:w-[40vw] w-[94vw]   
+                 max-h-[36.25rem] 2xl:max-h-[60rem]
                  overflow-hidden hover:shadow-[#ff7f50]/20 transition-shadow duration-300`}
     >
       {/* Top Logo Section */}

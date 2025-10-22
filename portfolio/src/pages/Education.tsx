@@ -13,14 +13,15 @@ const Education = () => {
 
   return (
     <div
-      className="  font-['Fira_Code',monospace]   border-1
+      className="  font-['Fira_Code',monospace]   border
       md:flex md:justify-center 
       xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
-      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]"
+      md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem]"
     >
       <section
         className="relative
-        xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   border-1
+        2xl:w-[75vw]
+         xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   border-
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
         xl:px-4 lg:px-3 md:px-1"
       >
@@ -65,6 +66,7 @@ const Education = () => {
           <div className="flex self-center gap-6 mb-0">
             <ExperienceModal
               logo={KCCS}
+              threexlwidth=""
               xlwidth={"xl:w-[32vw]"}
               lgwidth={"lg:w-[36vw]"}
               mdwidth={"md:w-[40vw]"}
