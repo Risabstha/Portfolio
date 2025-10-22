@@ -2,6 +2,8 @@ import { useTheme } from "../stores/ThemeProvider";
 
 interface experience {
   logo: string;
+  isExperience : boolean;
+  isEducation : boolean;
   threexlwidth : string;
   xlwidth :string;
   lgwidth : string;
@@ -17,6 +19,8 @@ interface experience {
 
 const ExperienceModal = ({
   logo,
+  isExperience,
+  isEducation,
   threexlwidth,
   xlwidth,
   lgwidth,
@@ -33,17 +37,17 @@ const ExperienceModal = ({
 
   return (
     <div
-      className={`${threexlwidth} ${xlwidth} ${lgwidth} ${mdwidth} ${width}
+      className={`${threexlwidth} ${xlwidth} ${lgwidth} ${mdwidth} ${width} 
             border-2 shadow-md ${
               theme === "dark" ? "border-gray-400" : "border-gray-600"
             }`}
     >
       <div
-        className="max-w-2xl 2xl:max-w-4xl 3xl:max-w-[75rem]
-                     mx-auto px-6 py-6  shadow-lg"
+        className={`max-w-2xl 2xl:max-w-4xl 3xl:max-w-[75rem] border
+                     mx-auto   shadow-lg ${isExperience ? "px-6 py-6" : "px-2 py-2"}`}
       >
         {/* Header Section */}
-        <div className="flex items-center gap-4 mb-4">
+        <div className={`flex items-center gap-4  border ${ isExperience && 'mb-4'}`}>
           <img
             src={logo}
             alt="NEA Logo"
@@ -70,7 +74,7 @@ const ExperienceModal = ({
             >
               {duration}
             </p>
-            {grade && (
+            {isEducation && (
               <p
                 className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] 
                               ${
@@ -90,7 +94,7 @@ const ExperienceModal = ({
           className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem]
                      ${
                        theme === "dark" ? "text-gray-300" : "text-gray-800"
-                     } leading-relaxed mb-4`}
+                     } leading-relaxed ${ isExperience && 'mb-4'}`}
         >
           {description}
         </p>
@@ -98,7 +102,7 @@ const ExperienceModal = ({
         {/* Skills Section */}
         {/* skills truthy value huda matrai skills display hunxa */}
         <div>
-          {skills && (
+          {isExperience && (
             <h3
               className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem] ${
                 theme === "dark" ? "text-gray-200" : "text-gray-900"

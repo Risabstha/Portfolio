@@ -1,13 +1,13 @@
 interface experiencedetail {
-    title : string;
-    company : string;
-    duration : string;
-    description : string;
-    skills : string[];
+  title: string;
+  company: string;
+  duration: string;
+  description: string;
+  skills: string[];
 }
 
 // defining type of array object
-export const experiences : experiencedetail[] = [
+export const experiences: experiencedetail[] = [
   {
     title: "Software Development Intern",
     company: "Nepal Electricity Authority (NEA)",

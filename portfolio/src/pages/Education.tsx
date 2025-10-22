@@ -1,15 +1,43 @@
 import ExperienceModal from "../components/ExperienceModal";
 import { useTheme } from "../stores/ThemeProvider";
 import { HiHashtag } from "react-icons/hi";
-import nepalaya from "../assets/nepalaya.png";
-import KCCS from "../assets/KCCS.png";
-import Himshikhar from "../assets/Himshikhar.png";
-import SquareBox from "../components/SquareBox";
 import DotGrid from "../components/DotGrid";
 import Symbol from "../components/Symbol";
+import { educationDetails } from "../utils/EducationDetails";
+import { useEffect, useRef, useState } from "react";
 
 const Education = () => {
   const { theme } = useTheme();
+
+  // vertical line dynamically match the height of the experience box by referencing its actual rendered height
+  const boxRefWhole = useRef<HTMLDivElement>(null);
+
+  // for horizontal line 
+  const boxRefExperienceModal = useRef<HTMLDivElement[]>([]);
+
+  const [lineHeightWhole, setlineHeightWhole] = useState<number>(0);
+  const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<number[]>([]);
+
+  useEffect(() => {
+    const updateHeights = () => {
+      // measure the whole container
+      if (boxRefWhole.current) {
+        const heightWhole = boxRefWhole.current.getBoundingClientRect().height;
+        setlineHeightWhole(heightWhole);
+      }
+
+      // measure each modal height
+      const heights = boxRefExperienceModal.current
+        .filter((val): val is HTMLDivElement => val !== null)     // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
+        .map((val:HTMLDivElement) => val.offsetHeight / 2);
+
+      setLineHeightExperienceModal(heights);
+    };
+
+    updateHeights();
+    window.addEventListener("resize", updateHeights);
+    return () => window.removeEventListener("resize", updateHeights);
+  }, []);
 
   return (
     <div
@@ -19,7 +47,7 @@ const Education = () => {
       md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem]"
     >
       <section
-        className="relative
+        className="relative border
         2xl:w-[75vw]
          xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   border-
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
@@ -47,49 +75,57 @@ const Education = () => {
           ></span>
         </div>
 
-        <div className="flex flex-col items-center xl:gap-y-12 lg:gap-y-10 md:gap-y-8 gap-y-5">
-          {/* overriding  parent’s alignment for each child with self-start, self-center, and self-end. */}
-          <div className="flex self-start gap-6 mb-0">
-            <ExperienceModal
-              logo={nepalaya}
-              xlwidth={"xl:w-[32vw]"}
-              lgwidth={"lg:w-[36vw]"}
-              mdwidth={"md:w-[40vw]"}
-              width={"w-[94vw]"} //  width's are vw
-              title="Bachelor of Science in Computer Science and Information Technology (BSc. CSIT)"
-              company="Nepalaya College"
-              duration="Graduated (2021 - 2025)"
-              grade="78 %"
-            />
-          </div>
+        {/* academic details */}
+        <div
+          ref={boxRefWhole}
+          className="flex border flex-col relative items-center xl:gap-y-6 lg:gap-y-5 md:gap-y-4 gap-y-4"
+        >
+          {educationDetails.map((edu, index) => (
+            <div
+              key={index}
+              ref={(val) => {
+                boxRefExperienceModal.current[index] = val!;
+              }}   //storing height of each modal
+                      // val! ==> telling ts,  val is not null or undefined
+              className={`flex ${
+                index % 2 === 0 ? "justify-end" : "justify-start"
+              } `}
+            >
+              {/* horizontal- lines */}
+              <div
+                className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
+                              xl:border-t-6 lg:border-t-5 md:border-t-4
+                              ${
+                                theme === "dark"
+                                  ? "border-gray-400"
+                                  : "border-gray-600"
+                              }
+                              justify-start`}
+                style={{ marginTop: `${lineHeightExperienceModal[index]}px` }}
+              />
+              <ExperienceModal
+                logo={edu.logo}
+                isExperience={false}
+                isEducation={true}
+                threexlwidth="3xl:w-[30vw]"
+                xlwidth="xl:w-[32vw]"
+                lgwidth="lg:w-[36vw]"
+                mdwidth="md:w-[40vw]"
+                width="w-[94vw]"
+                title={edu.title}
+                company={edu.company}
+                duration={edu.duration}
+                grade={edu.grade}
+              />
+            </div>
+          ))}
 
-          <div className="flex self-center gap-6 mb-0">
-            <ExperienceModal
-              logo={KCCS}
-              threexlwidth=""
-              xlwidth={"xl:w-[32vw]"}
-              lgwidth={"lg:w-[36vw]"}
-              mdwidth={"md:w-[40vw]"}
-              width={"w-[94vw]"} //  width's are vw
-              title="High School (Science stream)"
-              company="Kathmandu College of Central State"
-              duration="Graduated (2019 - 2020)"
-              grade="3.24 GPA"
-            />
-          </div>
-          <div className="flex self-end gap-6 mb-0">
-            <ExperienceModal
-              logo={Himshikhar}
-              xlwidth={"xl:w-[32vw]"}
-              lgwidth={"lg:w-[36vw]"}
-              mdwidth={"md:w-[40vw]"}
-              width={"w-[94vw]"} //  width's are vw
-              title="Secondary Education Examination (SEE)"
-              company="Himshikhar Boarding School"
-              duration="Graduated (2018 AD)"
-              grade="3.65 GPA"
-            />
-          </div>
+          {/* Vertical Line (Dynamic Height) */}
+          <div
+            className={`hidden md:block absolute left-[10%] -translate-x-1/2 xl:border-r-6 lg:border-r-5 md:border-r-4  rounded-4xl 
+                ${theme === "dark" ? "border-gray-400" : "border-gray-600"} `}
+            style={{ height: `${lineHeightWhole}px` }}
+          />
         </div>
 
         <Symbol

@@ -12,32 +12,31 @@ const Experiences = () => {
 
   // vertical line dynamically match the height of the experience box by referencing its actual rendered height
   const boxRefWhole = useRef<HTMLDivElement>(null);
-  const boxRefExperienceModal = useRef<HTMLDivElement>(null);
+
+  // for horizontal line 
+  const boxRefExperienceModal = useRef<HTMLDivElement[]>([]);
 
   const [lineHeightWhole, setlineHeightWhole] = useState<number>(0);
-  const [lineHeightExperienceModal, setLineHeightExperienceModal] =
-    useState<number>(0);
+  const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<number[]>([]);
 
   useEffect(() => {
     const updateHeights = () => {
+      // measure the whole container
       if (boxRefWhole.current) {
         const heightWhole = boxRefWhole.current.getBoundingClientRect().height;
         setlineHeightWhole(heightWhole);
       }
 
-      if (boxRefExperienceModal.current) {
-        const heightExp = boxRefExperienceModal.current.offsetHeight / 2;
-        setLineHeightExperienceModal(heightExp);
-      }
+      // measure each modal height
+      const heights = boxRefExperienceModal.current
+        .filter((val): val is HTMLDivElement => val !== null)     // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
+        .map((val:HTMLDivElement) => val.offsetHeight / 2);
+
+      setLineHeightExperienceModal(heights);
     };
 
-    // Call once at mount
     updateHeights();
-
-    // Call on window resize
     window.addEventListener("resize", updateHeights);
-
-    // Cleanup listener on unmount
     return () => window.removeEventListener("resize", updateHeights);
   }, []);
 
@@ -86,7 +85,10 @@ const Experiences = () => {
             {experiences.map((exp, i) => (
               <div
                 key={i}
-                ref={i === 0 ? boxRefExperienceModal : null} // attach ref to first one only
+                ref={(val) => {
+                boxRefExperienceModal.current[i] = val!;
+              }}   //storing height of each modal
+                      // val! ==> telling ts,  val is not null or undefined
                 className={`flex ${
                   i % 2 === 0 ? "justify-end" : "justify-start"
                 } `}
@@ -101,10 +103,12 @@ const Experiences = () => {
                                   : "border-gray-600"
                               }
                               ${i % 2 === 0 ? "justify-start" : "md:hidden"}`}
-                  style={{ marginTop: `${lineHeightExperienceModal}px` }}
+                  style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
                 />
                 <ExperienceModal
                   logo={nealogo}
+                  isExperience={true}
+                  isEducation={false}
                   threexlwidth="3xl:w-[30vw]"
                   xlwidth="xl:w-[33vw]"
                   lgwidth="lg:w-[33.5vw]"
@@ -122,7 +126,7 @@ const Experiences = () => {
                                   : "border-gray-600"
                               }
                               ${i % 2 === 0 ? "md:hidden" : "justify-start"}`}
-                  style={{ marginTop: `${lineHeightExperienceModal}px` }}
+                  style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
                 />
               </div>
             ))}
