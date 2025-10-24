@@ -13,11 +13,13 @@ const Experiences = () => {
   // vertical line dynamically match the height of the experience box by referencing its actual rendered height
   const boxRefWhole = useRef<HTMLDivElement>(null);
 
-  // for horizontal line 
+  // for horizontal line
   const boxRefExperienceModal = useRef<HTMLDivElement[]>([]);
 
   const [lineHeightWhole, setlineHeightWhole] = useState<number>(0);
-  const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<number[]>([]);
+  const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<
+    number[]
+  >([]);
 
   useEffect(() => {
     const updateHeights = () => {
@@ -29,8 +31,8 @@ const Experiences = () => {
 
       // measure each modal height
       const heights = boxRefExperienceModal.current
-        .filter((val): val is HTMLDivElement => val !== null)     // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
-        .map((val:HTMLDivElement) => val.offsetHeight / 2);
+        .filter((val): val is HTMLDivElement => val !== null) // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
+        .map((val: HTMLDivElement) => val.offsetHeight / 2);
 
       setLineHeightExperienceModal(heights);
     };
@@ -40,16 +42,34 @@ const Experiences = () => {
     return () => window.removeEventListener("resize", updateHeights);
   }, []);
 
+
+
+  const [dotLength, setDotLength] = useState(15); // default
+
+  useEffect(() => {
+    const updateLength = () => {
+      if (window.innerWidth < 1024) {
+        setDotLength(10);
+      } else {
+        setDotLength(15);
+      }
+    };
+
+    updateLength(); // run once on mount
+    window.addEventListener("resize", updateLength);
+    return () => window.removeEventListener("resize", updateLength);
+  }, []);
+
   return (
     <div
-      className="relative  font-['Fira_Code',monospace]   border
+      className="relative  font-['Fira_Code',monospace]   
       md:flex md:justify-center 
       xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
       md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem]"
     >
       <section
         className="relative
-        2xl:w-[75vw] xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]  border
+        2xl:w-[75vw] xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]  
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
         xl:px-4 lg:px-3 md:px-1"
       >
@@ -69,33 +89,34 @@ const Experiences = () => {
             experience
           </span>
           <span
-            className={`hidden md:block lg:w-[20rem] md:w-[18rem] xl:w-[24rem] border-t-2 mt-6 ml-5  ${
+            className={`hidden md:block lg:w-[14rem] md:w-[10rem] xl:w-[18rem] border-t-2 mt-6 ml-5  ${
               theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
             }`}
           ></span>
         </div>
 
-        <div className="flex md:justify-start justify-center">
-          {/* Top Row */}
-          <div
-            ref={boxRefWhole}
-            className="flex flex-col md:w-full relative gap-6 mb-0 "
-          >
-            {/* exp : experience, i : index */}
-            {experiences.map((exp, i) => (
-              <div
-                key={i}
-                ref={(val) => {
+        {/* Top Row */}
+        <div
+          ref={boxRefWhole}
+          className=" md:w-full relative mb-0 flex flex-col gap-y-5 "
+        >
+          {/* exp : experience, i : index */}
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              ref={(val) => {
                 boxRefExperienceModal.current[i] = val!;
-              }}   //storing height of each modal
-                      // val! ==> telling ts,  val is not null or undefined
-                className={`flex ${
-                  i % 2 === 0 ? "justify-end" : "justify-start"
-                } `}
-              >
-                {/* horizontal- lines */}
-                <div
-                  className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
+              }} //storing height of each modal
+              // val! ==> telling ts,  val is not null or undefined
+              className={`flex ${
+                i % 2 === 0
+                  ? "md:justify-end justify-center"
+                  : "md:justify-start justify-center"
+              } `}
+            >
+              {/* horizontal- lines */}
+              <div
+                className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
                               xl:border-t-6 lg:border-t-5 md:border-t-4
                               ${
                                 theme === "dark"
@@ -103,22 +124,22 @@ const Experiences = () => {
                                   : "border-gray-600"
                               }
                               ${i % 2 === 0 ? "justify-start" : "md:hidden"}`}
-                  style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
-                />
-                <ExperienceModal
-                  logo={nealogo}
-                  isExperience={true}
-                  isEducation={false}
-                  threexlwidth="3xl:w-[30vw]"
-                  xlwidth="xl:w-[33vw]"
-                  lgwidth="lg:w-[33.5vw]"
-                  mdwidth="md:w-[36.58vw]"
-                  width="w-[94]"
-                  {...exp}
-                />
-                {/* horizontal- lines */}
-                <div
-                  className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
+                style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
+              />
+              <ExperienceModal
+                logo={nealogo}
+                isExperience={true}
+                isEducation={false}
+                threexlwidth="3xl:w-[30vw]"
+                xlwidth="xl:w-[33vw]"
+                lgwidth="lg:w-[33.5vw]"
+                mdwidth="md:w-[36.58vw]"
+                width="w-[94vw]"
+                {...exp}
+              />
+              {/* horizontal- lines */}
+              <div
+                className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
                               xl:border-t-6 lg:border-t-5 md:border-t-4
                               ${
                                 theme === "dark"
@@ -126,18 +147,17 @@ const Experiences = () => {
                                   : "border-gray-600"
                               }
                               ${i % 2 === 0 ? "md:hidden" : "justify-start"}`}
-                  style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
-                />
-              </div>
-            ))}
+                style={{ marginTop: `${lineHeightExperienceModal[i]}px` }}
+              />
+            </div>
+          ))}
 
-            {/* Vertical Line (Dynamic Height) */}
-            <div
-              className={`hidden md:block absolute left-1/2 -translate-x-1/2 xl:border-r-6 lg:border-r-5 md:border-r-4  rounded-4xl 
+          {/* Vertical Line (Dynamic Height) */}
+          <div
+            className={`hidden md:block absolute top-0 left-1/2 -translate-x-1/2 xl:border-r-6 lg:border-r-5 md:border-r-4  rounded-4xl 
                 ${theme === "dark" ? "border-gray-400" : "border-gray-600"}`}
-              style={{ height: `${lineHeightWhole}px` }}
-            />
-          </div>
+            style={{ height: `${lineHeightWhole}px` }}
+          />
         </div>
       </section>
 
@@ -150,7 +170,7 @@ const Experiences = () => {
         viewBox="0 0 39 91 "
       />
       <DotGrid
-        length={window.innerWidth > 1024 ? 15 : 10}
+        length={dotLength}
         className={`hidden md:grid lg:grid-cols-3  md:grid-cols-2 gap-1 absolute
                   xl:w-22 lg:w-15 mdlg:w-9 md:w-4 md:justify-items-end
                   xl:h-25  lg:h-23 md:h-22
@@ -159,6 +179,25 @@ const Experiences = () => {
                   md:top-100 md:right-0
                   opacity-70`}
       />
+
+      {/* experience increase */}
+      {/* <SquareBox
+        className={`hidden md:block absolute 
+      md:top-210 md:right-0
+      xl:w-[3.2rem] xl-h-[3.2rem]
+      lg:w-[2.6rem] lg-h-[2.6m]
+      md:w-[1.8rem] md-h-[1.8rem]`}
+        viewBox="0 0 39 91 "
+      /> */}
+
+      {/* <DotGrid
+        length={dotLength}
+        className={`hidden md:grid lg:grid-cols-3 md:grid-cols-2 gap-1 absolute
+                  xl:w-22 lg:w-15 mdlg:w-9 md:w-4 md:justify-items-start
+                  xl:h-25  lg:h-23 md:h-22
+                  md:top-[60rem] md:-left-6
+                  opacity-70`}
+      /> */}
     </div>
   );
 };

@@ -20,11 +20,11 @@ const Nav = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] border 
+    <div className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]  
     xl:ml-[2rem] 2xl:ml-[3rem] md:flex md:justify-center font-['Fira_Code',monospace]">
       {/* // sticky works only with its closest ancestor */}
       <nav
-        className={`md:fixed md:top-0 md:z-40 border
+        className={`md:fixed md:top-0 md:z-40 
           2xl:w-[80vw] xl:w-[85vw] lg:w-[90vw] mdlg:w-[93vw] md:w-[95vw] ${
           theme === "dark" ? "bg-[#2d2c2c]" : "bg-[#f2f2f2]"
         }`}

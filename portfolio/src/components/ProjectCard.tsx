@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ChertNodesCardProps> = ({
       {/* Content */}
       <div className="px-4 py-3 flex flex-col gap-y-2 pb-2">
         <h3 className={`font-semibold xl:text-[1.5rem] lg:text-[1.4375rem] md:text-[1.3125rem]`}>{title}</h3>
-        <p className={`text-sm mb-1 xl:text-[1rem] lg:text-[0.9375rem] md:text-[0.875rem] ${theme === "dark" ? "text-gray-400" : "text-gray-700" }`}>{description}</p>
+        <p className={`text-sm mb-1 xl:text-[1.1rem] lg:text-[0.94rem] md:text-[0.89rem] ${theme === "dark" ? "text-gray-400" : "text-gray-700" }`}>{description}</p>
       </div>
     </div>
   );

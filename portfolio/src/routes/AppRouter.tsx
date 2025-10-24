@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainHome from "../pages/MainHome";
 import ProjectCard from "../components/ProjectCard"
-import meeting from '../assets/MeetingMMT.png';;
+import meeting from '../assets/MeetingMMT.png';import Button from "../components/Button";
+;
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -11,11 +12,8 @@ const AppRouter = () => {
       errorElement: <p>Error</p>,
     },
     {
-      path: "/projectcard",
-      element: <ProjectCard title="Meeting MMT" description="A MERN stack web application that allows users to find and book movies.
-       Features include JWT authentication,
-       2FA for security, and potentially recommendation 
-       algorithms for movie suggestions." tags={['JS','CSS','React','MongoDB']} liveUrl = {meeting} altText="mmt"/>,
+      path: "/button",
+      element: <Button/>,
       errorElement: <p>Error</p>,
     },
   ]);

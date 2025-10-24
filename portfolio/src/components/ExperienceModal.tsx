@@ -5,6 +5,7 @@ interface experience {
   isExperience : boolean;
   isEducation : boolean;
   threexlwidth : string;
+  twoxlwidth ?:string;
   xlwidth :string;
   lgwidth : string;
   mdwidth : string;
@@ -22,6 +23,7 @@ const ExperienceModal = ({
   isExperience,
   isEducation,
   threexlwidth,
+  twoxlwidth,
   xlwidth,
   lgwidth,
   mdwidth,
@@ -37,17 +39,18 @@ const ExperienceModal = ({
 
   return (
     <div
-      className={`${threexlwidth} ${xlwidth} ${lgwidth} ${mdwidth} ${width} 
-            border-2 shadow-md ${
-              theme === "dark" ? "border-gray-400" : "border-gray-600"
-            }`}
+      className={`${threexlwidth} ${twoxlwidth} ${xlwidth} ${lgwidth} ${mdwidth} ${width} 
+                  ${isExperience ? (theme === "dark" ? "shadow-md md:border-2 border-l-2 md:border-gray-400 border-l-gray-400" : "shadow-md border-l-2 md:border-2 border-l-gray-600 md:border-gray-600") : ""}
+                  ${isEducation ? (theme === "dark" ? "shadow-md border-l-2 border-l-gray-400" : "shadow-md border-l-2 border-l-gray-600") : ""}`}
     >
       <div
-        className={`max-w-2xl 2xl:max-w-4xl 3xl:max-w-[75rem] border
-                     mx-auto   shadow-lg ${isExperience ? "px-6 py-6" : "px-2 py-2"}`}
+
+      // max-w-2xl xl:max-w-3xl 2xl:max-w-[60rem] 3xl:max-w-[80rem] 
+        className={`
+                     mx-auto   shadow-lg ${isExperience ? "px-6 py-6" : "px-4 py-4"}`}
       >
         {/* Header Section */}
-        <div className={`flex items-center gap-4  border ${ isExperience && 'mb-4'}`}>
+        <div className={`flex items-center gap-4   ${ isExperience && 'mb-4'}`}>
           <img
             src={logo}
             alt="NEA Logo"
@@ -56,11 +59,11 @@ const ExperienceModal = ({
             rounded-full bg-white p-1"
           />
           <div>
-            <h2 className="xl:text-[1.24rem] lg:text-[1.1875rem] md:text-[1.125rem] text-[1.125rem] font-semibold">
+            <h2 className="xl:text-[1.3rem] lg:text-[1.24rem] md:text-[1.18rem] text-[1.18rem] font-semibold">
               {title}
             </h2>
             <p
-              className={`xl:text-[1.125rem] lg:text-[1rem] md:text-[0.9063rem] text-[0.9063rem] ${
+              className={`xl:text-[1.16rem] lg:text-[1.1rem] md:text-[1rem] text-[1rem] ${
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               }`}
             >
@@ -68,7 +71,7 @@ const ExperienceModal = ({
             </p>
 
             <p
-              className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] ${
+              className={`xl:text-[1.08rem] lg:text-[1.02rem] md:text-[0.92rem] text-[0.92rem] ${
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               }`}
             >
@@ -76,7 +79,7 @@ const ExperienceModal = ({
             </p>
             {isEducation && (
               <p
-                className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] 
+                className={`xl:text-[1.08rem] lg:text-[1.02rem] md:text-[0.92rem] text-[0.92rem]
                               ${
                                 theme === "dark"
                                   ? "text-gray-100"
@@ -91,7 +94,7 @@ const ExperienceModal = ({
 
         {/* Description */}
         <p
-          className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem]
+          className={`xl:text-[1.15rem] lg:text-[1.05rem] md:text-[0.95rem] text-[0.95rem] 
                      ${
                        theme === "dark" ? "text-gray-300" : "text-gray-800"
                      } leading-relaxed ${ isExperience && 'mb-4'}`}
@@ -104,7 +107,7 @@ const ExperienceModal = ({
         <div>
           {isExperience && (
             <h3
-              className={`xl:text-[1rem] lg:text-[0.8755rem] md:text-[0.8438rem] text-[0.8438rem] ${
+              className={`xl:text-[1.15rem] lg:text-[1.05rem] md:text-[0.95rem] text-[0.95rem] ${
                 theme === "dark" ? "text-gray-200" : "text-gray-900"
               } mb-2 font-medium`}
             >
@@ -119,7 +122,7 @@ const ExperienceModal = ({
               ) => (
                 <span
                   key={i}
-                  className={`xl:text-[0.8755rem] lg:text-[0.8125rem] md:text-[0.7813rem] text-[0.7813rem] border-1  ${
+                  className={`xl:text-[0.95rem] lg:text-[0.83rem] md:text-[0.79rem] text-[0.79rem] border  ${
                     theme === "dark"
                       ? "border-[#C778DD] text-gray-200"
                       : "border-[#a840c5] text-gray-900"

@@ -1,44 +1,59 @@
 import React, { useState } from "react";
 import { useTheme } from "../stores/ThemeProvider";
 
-const InputField: React.FC = () => {
+interface inputs {
+  type: string;
+  id: string;
+  name: string;
+  value : string;
+  onChange : (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholders: string;
+}
+const InputField: React.FC<inputs> = ({ type, id, name, value, placeholders, onChange  }) => {
   const [focused, setFocused] = useState<boolean>(false);
-  const [value, setValue] = useState<string>("");
-   const { theme } = useTheme();
+  // const [value, setValue] = useState<string>("");
+  const { theme } = useTheme();
 
   return (
-    <div className="relative w-64 mx-auto pt-10">
+    <div className="relative pt-0">
       <form>
         <div className="relative">
           <input
-            id="ids"
-            name="name"
+            type={type}
+            id={id}
+            name={name}
             autoComplete="off"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(value !== "")} // stay up if value not empty
-            onChange={(e) => setValue(e.target.value)}
             value={value}
-            className="
-              w-full border border-gray-400  px-2 pt-4 pb-1
+            onChange={onChange}
+            className={`
+              w-full border-2 ${theme === "dark" ? "" : ""}  px-2 pt-4 pb-1
               text-base outline-none
-              focus:border-blue-500
-              
-            "
+              ${
+                theme === "dark"
+                  ? "border-gray-400 focus:border-[#C778DD] "
+                  : "border-gray-600 focus:border-[#a840c5]"
+              }
+              `}
           />
 
           <label
-            htmlFor="ids"
+            htmlFor={id}
             className={`
-              absolute left-4 text-gray-400 pointer-events-none
+              absolute left-4 pointer-events-none
               transition-all duration-200 ease-in-out
-              ${ theme === "dark" ? `bg-[#2d2c2c]` : `bg-[#f2f2f2]`  }
-              ${focused
-                ? "text-sm -top-2 text-blue-500  px-1"
-                : "text-base top-2.5"
+              ${theme === "dark" ? `bg-[#2d2c2c]` : `bg-[#f2f2f2]`}
+              ${
+                focused
+                  ? ` ${
+                      theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
+                    } text-sm -top-2 px-1`
+                  : `  top-[0.66rem] px-2 text-[1.05rem]`
               }
             `}
           >
-            Enter Name
+            {placeholders}
           </label>
         </div>
       </form>

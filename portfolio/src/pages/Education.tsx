@@ -9,47 +9,47 @@ import { useEffect, useRef, useState } from "react";
 const Education = () => {
   const { theme } = useTheme();
 
-  // vertical line dynamically match the height of the experience box by referencing its actual rendered height
-  const boxRefWhole = useRef<HTMLDivElement>(null);
+  // // vertical line dynamically match the height of the experience box by referencing its actual rendered height
+  // const boxRefWhole = useRef<HTMLDivElement>(null);
 
-  // for horizontal line 
-  const boxRefExperienceModal = useRef<HTMLDivElement[]>([]);
+  // // for horizontal line 
+  // const boxRefExperienceModal = useRef<HTMLDivElement[]>([]);
 
-  const [lineHeightWhole, setlineHeightWhole] = useState<number>(0);
-  const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<number[]>([]);
+  // const [lineHeightWhole, setlineHeightWhole] = useState<number>(0);
+  // const [lineHeightExperienceModal, setLineHeightExperienceModal] = useState<number[]>([]);
 
-  useEffect(() => {
-    const updateHeights = () => {
-      // measure the whole container
-      if (boxRefWhole.current) {
-        const heightWhole = boxRefWhole.current.getBoundingClientRect().height;
-        setlineHeightWhole(heightWhole);
-      }
+  // useEffect(() => {
+  //   const updateHeights = () => {
+  //     // measure the whole container
+  //     if (boxRefWhole.current) {
+  //       const heightWhole = boxRefWhole.current.getBoundingClientRect().height;
+  //       setlineHeightWhole(heightWhole);
+  //     }
 
-      // measure each modal height
-      const heights = boxRefExperienceModal.current
-        .filter((val): val is HTMLDivElement => val !== null)     // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
-        .map((val:HTMLDivElement) => val.offsetHeight / 2);
+  //     // measure each modal height
+  //     const heights = boxRefExperienceModal.current
+  //       .filter((val): val is HTMLDivElement => val !== null)     // safety net : your ref callback might not have assigned all the elements yet — some positions in the array can be undefined
+  //       .map((val:HTMLDivElement) => val.offsetHeight / 2);
 
-      setLineHeightExperienceModal(heights);
-    };
+  //     setLineHeightExperienceModal(heights);
+  //   };
 
-    updateHeights();
-    window.addEventListener("resize", updateHeights);
-    return () => window.removeEventListener("resize", updateHeights);
-  }, []);
+  //   updateHeights();
+  //   window.addEventListener("resize", updateHeights);
+  //   return () => window.removeEventListener("resize", updateHeights);
+  // }, []);
 
   return (
     <div
-      className="  font-['Fira_Code',monospace]   border
+      className="  font-['Fira_Code',monospace]   
       md:flex md:justify-center 
       xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
       md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem]"
     >
       <section
-        className="relative border
+        className="relative 
         2xl:w-[75vw]
-         xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   border-
+         xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]   -
         md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
         xl:px-4 lg:px-3 md:px-1"
       >
@@ -69,7 +69,7 @@ const Education = () => {
             education
           </span>
           <span
-            className={`hidden md:block lg:w-[18rem] md:w-[16rem] xl:w-[22rem] border-t-2 mt-6 ml-5  ${
+            className={`hidden md:block lg:w-[18rem] md:w-[12rem] xl:w-[24rem] border-t-2 mt-6 ml-5  ${
               theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
             }`}
           ></span>
@@ -77,24 +77,22 @@ const Education = () => {
 
         {/* academic details */}
         <div
-          ref={boxRefWhole}
-          className="flex border flex-col relative items-center xl:gap-y-6 lg:gap-y-5 md:gap-y-4 gap-y-4"
+          // ref={boxRefWhole}
+          className=" relative flex flex-col  gap-y-5 md:gap-y-6 md:w-full"
         >
           {educationDetails.map((edu, index) => (
-            <div
+            <div 
               key={index}
-              ref={(val) => {
-                boxRefExperienceModal.current[index] = val!;
-              }}   //storing height of each modal
+              // ref={(val) => {
+              //   boxRefExperienceModal.current[index] = val!;
+              // }}   //storing height of each modal
                       // val! ==> telling ts,  val is not null or undefined
-              className={`flex ${
-                index % 2 === 0 ? "justify-end" : "justify-start"
-              } `}
+              className={`flex  justify-center `} // flex is for horizontal line and modal
             >
               {/* horizontal- lines */}
-              <div
+              {/* <div
                 className={`hidden md:block border-t-4 3xl:w-[8.8%] 2xl:w-[4.7%] xl:w-[6.8%] lg:w-[8.5%] md:w-[7%] 
-                              xl:border-t-6 lg:border-t-5 md:border-t-4
+                              xl:border-t-6 lg:border-t-5 md:border-t-4 
                               ${
                                 theme === "dark"
                                   ? "border-gray-400"
@@ -102,15 +100,16 @@ const Education = () => {
                               }
                               justify-start`}
                 style={{ marginTop: `${lineHeightExperienceModal[index]}px` }}
-              />
+              /> */}
               <ExperienceModal
                 logo={edu.logo}
                 isExperience={false}
                 isEducation={true}
-                threexlwidth="3xl:w-[30vw]"
-                xlwidth="xl:w-[32vw]"
-                lgwidth="lg:w-[36vw]"
-                mdwidth="md:w-[40vw]"
+                threexlwidth="3xl:w-[90%]"
+                twoxlwidth="2xl:w-[90%]"
+                xlwidth="xl:w-[90%]"
+                lgwidth="lg:w-[90%]"
+                mdwidth="md:w-[90%]"
                 width="w-[94vw]"
                 title={edu.title}
                 company={edu.company}
@@ -121,40 +120,14 @@ const Education = () => {
           ))}
 
           {/* Vertical Line (Dynamic Height) */}
-          <div
-            className={`hidden md:block absolute left-[10%] -translate-x-1/2 xl:border-r-6 lg:border-r-5 md:border-r-4  rounded-4xl 
+          {/* <div
+            className={`hidden md:block absolute top-0  xl:left-[5.5%] lg:left-[4.5%] -translate-x-1/2 xl:border-r-6 lg:border-r-5 md:border-r-4  rounded-4xl 
                 ${theme === "dark" ? "border-gray-400" : "border-gray-600"} `}
             style={{ height: `${lineHeightWhole}px` }}
-          />
+          /> */}
         </div>
 
-        <Symbol
-          className="absolute 
-              xl:top-48 xl:right-40 xl:w-28 xl:h-28
-              lg:top-59 lg:right-36 lg:w-24 lg:h-24
-              md:top-50 md:right-32 md:w-20  md:h-20 "
-        />
-
-        <DotGrid
-          length={25}
-          className={`hidden md:grid grid-cols-5 gap-1 absolute
-                  xl:w-22 lg:w-20 md:w-18
-                  xl:h-22  lg:h-20 md:h-18
-                  xl:top-30 xl:right-70
-                  lg:top-32 lg:right-64
-                  md:top-34 md:right-58
-                  opacity-70`}
-        />
-        <DotGrid
-          length={16}
-          className={`hidden md:grid grid-cols-4 gap-1 absolute
-                  xl:w-16 lg:w-14 md:w-12
-                  xl:h-16  lg:h-14 md:h-12
-                  xl:top-83 xl:right-25
-                  lg:top-80 lg:right-22
-                  md:top-77 md:right-19
-                  opacity-70`}
-        />
+       
       </section>
     </div>
   );

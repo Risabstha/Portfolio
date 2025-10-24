@@ -61,12 +61,20 @@ const Projects = () => {
         {/* rendering projects */}
         {/* justify-items-center le grid ko each cell lai center gardinxa , justify-center le purai grid lai center garxa */}
         <div
-          className=" w-full grid 
-          2xl:grid-cols-4 2xl:gap-4
-        xl:grid-cols-3 xl:gap-4
-        lg:grid-cols-3 lg:gap-3 lg:mx-2 
-        md:grid-cols-2 md:gap-x-0 md:mx-3 md:justify-items-center md:gap-y-[3.5vw]
-        grid-col-1 gap-y-8 justify-center"
+        //   className=" w-full grid 
+        //   2xl:grid-cols-4 2xl:gap-4
+        // xl:grid-cols-3 xl:gap-4
+        // lg:grid-cols-3 lg:gap-3 lg:mx-2 
+        // md:grid-cols-2 md:gap-x-0  md:mx-3 md:justify-items-center md:gap-y-[3.5vw]
+        // grid-col-1 gap-y-5 justify-center"
+           className="
+    w-full grid
+    2xl:gap-4 2xl:grid-cols-4 
+    xl:gap-4 xl:grid-cols-3
+    lg:gap-3 lg:grid-cols-2
+    md:gap-x-0 md:grid-cols-2 grid-cols1 md:justify-items-center md:gap-y-[3.5vw]
+    gap-y-5 justify-center
+  "
         >
           {ProjectDetails.map((data) => (
             <ProjectCard

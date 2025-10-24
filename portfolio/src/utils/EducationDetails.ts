@@ -14,7 +14,7 @@ export const educationDetails = [
   {
     logo: KCCS,
     title: "High School (Science stream)",
-    company: "Kathmandu College of Central State Kathmandu College of Central State Kathmandu College of Central State Kathmandu College of Central State",
+    company: "Kathmandu College of Central State ",
     duration: "Graduated (2019 - 2020)",
     grade: "3.24 GPA",
   },

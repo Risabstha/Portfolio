@@ -30,20 +30,20 @@ const Skills = () => {
   const { theme } = useTheme();
   return (
     <div
-      className="  font-['Fira_Code',monospace]  border
+      className="  font-['Fira_Code',monospace]  
                 md:flex md:justify-center 
                 xl:pb-[10rem] lg:pb-[9rem] mdlg:pb-[8rem] md:pb-[7.5rem] pb-[7rem]
                 md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem] xl:ml-[2rem] 2xl:ml-[3rem] "
     >
       <section
-        className="relative border
+        className="relative 
                     2xl:w-[75vw] xl:w-[80vw] lg:w-[85vw] mdlg:w-[88vw] md:w-[90vw]  
                     md:gap-[2rem] lg:gap-[4rem]  xl:gap-[6rem] 
                     xl:px-4 lg:px-3 md:px-1"
       >
         {/* skills section Heading */}
         <div
-          className="flex justify-center  border
+          className="flex justify-center  
                         md:justify-start py-1 cursor-pointer
                         pb-6  md:pb-8 lg:pb-10"
         >
@@ -67,7 +67,7 @@ const Skills = () => {
 
         {/* Skills section content */}
         <div className="md:flex md:justify-between">
-          <div className="hidden md:block relative w-[30vw] border">
+          <div className="hidden md:block relative w-[30vw] ">
             <DotGrid
               length={25}
               className="grid grid-cols-5 gap-1 absolute 
@@ -120,7 +120,7 @@ const Skills = () => {
           </div>
 
           {/* skills Boxes Design*/}
-          <div className="md:w-[60rem] 3xl:w-[80rem] border 2xl:flex 2xl:justify-center ">
+          <div className="md:w-[60rem] 3xl:w-[80rem]  2xl:flex 2xl:justify-center ">
             <div
               className="flex flex-col gap-y-3
                         md:justify-end md:gap-y-4  
