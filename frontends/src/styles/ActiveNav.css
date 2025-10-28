@@ -1,0 +1,25 @@
+/* React Scroll active link styles */
+
+.active-nav-dark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;           /* place it just below the link text */
+  left: 55%;
+  transform: translateX(-50%);
+  width: 6px;          /* dot width */
+  height: 6px;         /* dot height */
+  border-radius: 50%;  /* make it circular */
+  background-color: #C778DD /* Tailwind blue-500 */
+}
+
+.active-nav-light::after {
+  content: '';
+  position: absolute;
+  bottom: 0;           /* place it just below the link text */
+  left: 55%;
+  transform: translateX(-50%);
+  width: 6px;          /* dot width */
+  height: 6px;         /* dot height */
+  border-radius: 50%;  /* make it circular */
+  background-color: #a840c5 /* Tailwind blue-500 */
+}

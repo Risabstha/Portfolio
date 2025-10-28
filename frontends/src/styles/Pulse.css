@@ -1,0 +1,26 @@
+.pulse-ring-dark {
+  border-radius: 50%;
+  background: #f3f3f3;
+  opacity: 0.6;
+  animation: pulse 2s ease-out infinite;
+}
+.pulse-ring-light {
+  border-radius: 50%;
+  background: #0f0f0f;
+  opacity: 0.6;
+  animation: pulse 2s ease-out infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
