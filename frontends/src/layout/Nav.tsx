@@ -277,14 +277,14 @@ const Nav = () => {
               <span>Risab Shrestha</span>
             </div>
             <div className="flex  gap-x-5">
-              <div className="flex  px-2 py-1 cursor-pointer">
+              <div className="flex  px-2 py-0  cursor-pointer">
                 <ThemeToggle />
               </div>
               <span
                 className="text-[1.8rem] cursor-pointer"
                 onClick={() => ThreedotOpen()}
               >
-                {threedot ? <IoClose /> : <BsThreeDots />}
+                {threedot ? <IoClose className="" /> : <BsThreeDots className="" />}
               </span>
             </div>
           </div>
