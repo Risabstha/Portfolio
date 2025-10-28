@@ -295,11 +295,15 @@ const Nav = () => {
                   theme === "dark" ? "bg-[#121212]" : "bg-[#e8e7e7]"
                 }`}
               >
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="home"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -315,11 +319,15 @@ const Nav = () => {
                     <span>home</span>
                   </Scroll.Link>
                 </li>
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="skills"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -334,11 +342,15 @@ const Nav = () => {
                     <span>skills</span>
                   </Scroll.Link>
                 </li>
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="project"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -353,11 +365,15 @@ const Nav = () => {
                     <span>projects</span>
                   </Scroll.Link>
                 </li>
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="experience"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -372,11 +388,15 @@ const Nav = () => {
                     <span>experience</span>
                   </Scroll.Link>
                 </li>
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="education"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -391,11 +411,15 @@ const Nav = () => {
                     <span>education</span>
                   </Scroll.Link>
                 </li>
-                <li>
+                <li className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
                     to="contact"
                     smooth={true}
+                    activeClass={
+                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                    }
+                    spy={true}
                     duration={500}
                     offset={-60}
                     className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
@@ -411,7 +435,7 @@ const Nav = () => {
                   </Scroll.Link>
                 </li>
 
-                <li>
+                <li >
                   <div className="flex justify-end space-x-6 px-8 pb-4">
                     <Link
                       to="https://github.com/Risabstha?tab=repositories"
