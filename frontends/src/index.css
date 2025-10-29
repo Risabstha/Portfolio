@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-mdlg: 56rem; /* Custom breakpoint between md (48rem) and lg (64rem) */
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 110rem;
+  --breakpoint-3xl: 179rem; /* for skills section  */
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CSS custom properties (a.k.a. CSS variables) */
+/* :root is a special CSS selector that points to the root element of the document (the <html> tag). */
+:root {
+  /* creating css variables */
+
+  --background-color: #f3f3f3;
+  --primary-text-color: #0f0f0f;
+}
+[data-theme="dark"] {
+  --background-color: #0f0f0f;
+  --primary-text-color: #f3f3f3;
+}
