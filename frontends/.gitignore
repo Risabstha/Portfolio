@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+.env
+
 # Ignore a single image in the root
 /src/assets/Profile.png
 /src/assets/Photo.png
