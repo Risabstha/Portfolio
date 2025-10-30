@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import SquareBox from "../components/SquareBox";
 import DotGrid from "../components/DotGrid";
 import { useEffect, useState } from "react";
-import mailApi from "../apis/Api";
+import emailjs from "@emailjs/browser";
 
 interface Mail {
   username: string;
@@ -29,13 +29,14 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void => {
-    const { name, value } = e.target;
+  const handleChange = ( e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ): void => {
+   
+    const { name, value } = e.target;   // destructuring
+
     e.preventDefault();
     setMail((prev) => ({ ...prev, [name]: value }));
   };
+
 
   const [errors, setErrors] = useState<Mail>({
     username: "",
@@ -115,40 +116,56 @@ const Contact = () => {
     return () => window.removeEventListener("resize", updateLength);
   }, []);
 
+
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // prevent multiple clicks while submitting
-    if (isSubmitting) return;
+  if (isSubmitting) return;
 
-    const validationErrors = validateMail(mail);
-    setErrors(validationErrors);
+  const validationErrors = validateMail(mail);
+  setErrors(validationErrors);
 
-    const noErrors = Object.values(validationErrors).every((err) => err === "");
-    if (!noErrors) {
-      setSubmitStatus("");
-      return;
+  const noErrors = Object.values(validationErrors).every((err) => err === "");
+  if (!noErrors) {
+    setSubmitStatus("");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    // Send email using EmailJS
+    const result = await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,   // from EmailJS dashboard
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  // from EmailJS dashboard
+      // "template_868ob0s",
+      {
+        from_name: mail.username,
+        from_email: mail.email,
+        subject: mail.subject,
+        message: mail.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY    // your EmailJS public key
+    );
+
+    if (result.status === 200) {
+      setSubmitStatus("Mail sent successfully!");
+      setmailSuccess(true);
+      setMail({ username: "", email: "", subject: "", message: "" });
+    } else {
+      setSubmitStatus("Failed to send mail.");
+      setmailSuccess(false);
     }
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus("Error sending email. Try again later.");
+    setmailSuccess(false);
+  } finally {
+    setTimeout(() => setIsSubmitting(false), 10000);
+  }
+};
 
-    setIsSubmitting(true); // disable button
-    try {
-      const data = await mailApi(mail); // call API
-      if (data.success) {
-        setSubmitStatus("Mail sent successfully!");
-        setmailSuccess(true); // yesle mailSucess state lai true garxa
-        setMail({ username: "", email: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus("Failed to send mail.");
-        setmailSuccess(false); // mailSucess lai false garxa
-      }
-    } catch (error) {
-      setSubmitStatus("Server error. Try again later.");
-      console.error(error);
-    } finally {
-      // re-enable button after 10 seconds
-      setTimeout(() => setIsSubmitting(false), 10000);
-    }
-  };
 
   // Auto-clear message after 5 seconds
   useEffect(() => {
