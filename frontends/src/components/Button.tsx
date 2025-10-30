@@ -3,8 +3,9 @@ import { useTheme } from "../stores/ThemeProvider";
 interface button {
   types: "submit" | "reset" | "button";
   value: string;
+  disabled?: boolean;
 }
-const Button: React.FC<button> = ({ types, value }) => {
+const Button: React.FC<button> = ({ types, value , disabled}) => {
   const { theme } = useTheme();
   return (
     <div className="m-auto">
@@ -15,6 +16,7 @@ const Button: React.FC<button> = ({ types, value }) => {
             : "border-[#a840c5] hover:text-[#a840c5]"
         }`}
         type={types}
+        disabled={disabled}
         
       >
         {value}

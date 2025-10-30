@@ -18,8 +18,10 @@ const Contact = () => {
   const { theme } = useTheme();
 
   const [dotLength, setDotLength] = useState(15); // default
-  const [ mailSucess, setmailSuccess ] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<string>("");
+  const [mailSucess, setmailSuccess] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<string>("");   
+  const [isSubmitting, setIsSubmitting] = useState(false);    // to prevent multiple email send clicks
+
   const [mail, setMail] = useState<Mail>({
     username: "",
     email: "",
@@ -115,29 +117,36 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // prevent multiple clicks while submitting
+    if (isSubmitting) return;
+
     const validationErrors = validateMail(mail);
     setErrors(validationErrors);
 
     const noErrors = Object.values(validationErrors).every((err) => err === "");
-    console.log("🚀 ~ test ~ mail:", mail);
-    if (noErrors) {
-      ``;
-      try {
-        const data = await mailApi(mail); // api is called in Api.ts file , yesma import gareko xa
-        if (data.success) {
-          setSubmitStatus("Mail sent successfully!");
-          setmailSuccess(data.success);
-          setMail({ username: "", email: "", subject: "", message: "" });
-        } else {
-          setSubmitStatus("Failed to send mail.");
-          setmailSuccess(data.success);
-        }
-      } catch (error) {
-        setSubmitStatus("Server error. Try again later.");
-        console.error(error);
-      }
-    } else {
+    if (!noErrors) {
       setSubmitStatus("");
+      return;
+    }
+
+    setIsSubmitting(true); // disable button
+    try {
+      const data = await mailApi(mail); // call API
+      if (data.success) {
+        setSubmitStatus("Mail sent successfully!");
+        setmailSuccess(true); // yesle mailSucess state lai true garxa
+        setMail({ username: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("Failed to send mail.");
+        setmailSuccess(false); // mailSucess lai false garxa
+      }
+    } catch (error) {
+      setSubmitStatus("Server error. Try again later.");
+      console.error(error);
+    } finally {
+      // re-enable button after 10 seconds
+      setTimeout(() => setIsSubmitting(false), 10000);
     }
   };
 
@@ -147,13 +156,12 @@ const Contact = () => {
       const timer = setTimeout(() => {
         setSubmitStatus("");
       }, 5000);
-
       return () => clearTimeout(timer); // Cleanup
     }
     setmailSuccess(false);
   }, [submitStatus]);
 
-  return (
+return (
     <div
       className="relative  font-['Fira_Code',monospace]    
           md:flex md:justify-center 
@@ -197,7 +205,11 @@ const Contact = () => {
         </div>
 
         {submitStatus && (
-          <p className={`text-center mb-4 ${mailSucess ? "text-green-500" : "text-red-500"}  animate-bounce`}>
+          <p
+            className={`text-center mb-4 ${
+              mailSucess ? "text-green-500" : "text-red-500"
+            }  animate-bounce`}
+          >
             {submitStatus}
           </p>
         )}
@@ -271,7 +283,7 @@ const Contact = () => {
             )}
           </div>
 
-          <Button types="submit" value="Send" />
+          <Button types="submit" value="Send" disabled={isSubmitting} />
         </form>
       </section>
 
