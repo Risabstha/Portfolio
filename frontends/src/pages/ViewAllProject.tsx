@@ -51,13 +51,13 @@ const ViewAllProject = () => {
             </span>
           </div>
         </div>
-        <span
-          className={`hidden md:block  mb-6 ml-[0.2%] ${
+        <div
+          className={`mb-3 ml-[4%] md:mb-6 md:ml-[0.2%] ${
             theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
           }`}
         >
           List of my projects
-        </span>
+        </div>
         {/* rendering projects */}
         {/* justify-items-center le grid ko each cell lai center gardinxa , justify-center le purai grid lai center garxa */}
         <div
@@ -87,13 +87,14 @@ const ViewAllProject = () => {
           )}
         </div>
 
-        <span
-          className={`hidden md:block  mb-6 mt-[7rem] ml-[0.2%] ${
+        <div
+          className={` mt-16 mb-3 ml-[4%]   md:mb-6 md:mt-[7rem] ml-[0.2%] ${
             theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
           }`}
         >
           Small projects
-        </span>
+        </div>
+
         <div
           className="w-full grid 
     2xl:gap-4 2xl:grid-cols-4 
