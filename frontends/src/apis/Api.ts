@@ -1,4 +1,5 @@
-const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+// const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL ;
+const baseUrl = "http://localhost:5001/api";
 
 interface maildata {
     username: string;
