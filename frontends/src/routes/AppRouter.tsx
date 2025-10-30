@@ -28,6 +28,7 @@ function ErrorFallback({ error , resetErrorBoundary } : { error: Error; resetErr
 
 const AppRouter = () => {
   const [retryKey, setRetryKey] = useState(0);
+  console.log("retryKey:", retryKey);
 
   const router = createBrowserRouter([
     {
