@@ -10,8 +10,15 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import * as Scroll from "react-scroll";
 import "../styles/ActiveNav.css";
+import { nav } from "framer-motion/client";
+
+interface NavItems {
+  id: number;
+  name: string;
+}
 
 const Nav = () => {
+  const { theme } = useTheme();
   const [threedot, setThreedot] = useState<boolean>(false);
 
   const ThreedotOpen = () => {
@@ -21,8 +28,15 @@ const Nav = () => {
     setThreedot(false);
   };
 
-  const { theme } = useTheme();
-
+  const navItems: NavItems[] = [
+    { id: 1, name: "home" },
+    { id: 2, name: "skills" },
+    { id: 3, name: "project" },
+    { id: 4, name: "experience" },
+    { id: 5, name: "education" },
+    { id: 6, name: "contact" },
+  ];
+  
   return (
     <div
       className="md:ml-[1.5rem] mdlg:ml-[1.65rem] lg:ml-[1.8rem]  
@@ -64,188 +78,40 @@ const Nav = () => {
           </div>
 
           <ul className="flex md:gap-x-0 lg:gap-x-[0.70vw] xl:gap-x-[1.3vw]">
-            <li className="relative">
-              <Scroll.Link
-                to="home"
-                smooth={true}
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                // offset={-150}
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
+            {navItems.map((item) => (
+              <li key={item.id} className="relative">
+                <Scroll.Link
+                  to={item.name}
+                  offset={-86}
+                  smooth={true}
+                  activeClass={
+                    theme === "dark" ? "active-nav-dark " : "active-nav-light"
+                  }
+                  spy={true}
+                  duration={500}
+                  // offset={-150}
+                  className={`flex px-2 py-1 cursor-pointer ${
+                    theme === "dark"
+                      ? "hover:text-[#C778DD]"
+                      : "hover:text-[#a840c5]"
+                  } `}
+                >
+                  <span
+                    className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
                               xl:py-[0.30rem] lg:py-[0.28rem] m mdlg:py-[0.22rem] md:py-[0.15rem] 
                               ${
                                 theme === "dark"
                                   ? "text-[#C778DD]"
                                   : "text-[#a840c5]"
                               }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>home</span>
-              </Scroll.Link>
-            </li>
-            <li className="relative">
-              <Scroll.Link
-                to="skills"
-                smooth={true}
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                offset={-86}
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
-                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
-                                ${
-                                  theme === "dark"
-                                    ? "text-[#C778DD]"
-                                    : "text-[#a840c5]"
-                                }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>skills</span>
-              </Scroll.Link>
-            </li>
-            <li className="relative">
-              <Scroll.Link
-                to="project"
-                smooth={true}
-                // auto mark hunxa jab tyo section ma pugxa
-                //  spy lekhnu parxa active class work garna
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                offset={-86}
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
-                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
-                                ${
-                                  theme === "dark"
-                                    ? "text-[#C778DD]"
-                                    : "text-[#a840c5]"
-                                }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>projects</span>
-              </Scroll.Link>
-            </li>
-            <li className="relative">
-              <Scroll.Link
-                to="experience"
-                smooth={true}
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                offset={-86} //nav ko height ko ali mathi samma scroll hunxa
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
-                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
-                                ${
-                                  theme === "dark"
-                                    ? "text-[#C778DD]"
-                                    : "text-[#a840c5]"
-                                }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>experience</span>
-              </Scroll.Link>
-            </li>
-            <li className="relative">
-              <Scroll.Link
-                to="education"
-                smooth={true}
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                offset={-86}
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
-                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
-                                ${
-                                  theme === "dark"
-                                    ? "text-[#C778DD]"
-                                    : "text-[#a840c5]"
-                                }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>education</span>
-              </Scroll.Link>
-            </li>
-            <li className="relative">
-              <Scroll.Link
-                to="contact"
-                smooth={true}
-                activeClass={
-                  theme === "dark" ? "active-nav-dark " : "active-nav-light"
-                }
-                spy={true}
-                duration={500}
-                offset={-86}
-                className={`flex px-2 py-1 cursor-pointer ${
-                  theme === "dark"
-                    ? "hover:text-[#C778DD]"
-                    : "hover:text-[#a840c5]"
-                } `}
-              >
-                <span
-                  className={` md:text-sm mdlg:text-[1.07rem] lg:text-lg xl:text-xl 
-                                xl:py-[0.30rem] lg:py-[0.28rem] mdlg:py-[0.22rem] md:py-[0.18rem]  
-                                ${
-                                  theme === "dark"
-                                    ? "text-[#C778DD]"
-                                    : "text-[#a840c5]"
-                                }`}
-                >
-                  <HiHashtag />
-                </span>
-                <span>contact</span>
-              </Scroll.Link>
-            </li>
+                  >
+                    <HiHashtag />
+                  </span>
+                  <span>{item.name}</span>
+                </Scroll.Link>
+              </li>
+            ))}
+
             <li className="cursor-pointer">
               <ThemeToggle />
             </li>
@@ -284,7 +150,11 @@ const Nav = () => {
                 className="text-[1.8rem] cursor-pointer"
                 onClick={() => ThreedotOpen()}
               >
-                {threedot ? <IoClose className="" /> : <BsThreeDots className="" />}
+                {threedot ? (
+                  <IoClose className="" />
+                ) : (
+                  <BsThreeDots className="" />
+                )}
               </span>
             </div>
           </div>
@@ -295,13 +165,16 @@ const Nav = () => {
                   theme === "dark" ? "bg-[#121212]" : "bg-[#e8e7e7]"
                 }`}
               >
-                <li className="relative">
+                {navItems.map((item) => (
+                  <li key={item.id} className="relative">
                   <Scroll.Link
                     onClick={isMobileNavSelected}
-                    to="home"
+                    to={item.name}
                     smooth={true}
                     activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
+                      theme === "dark"
+                        ? "active-nav-dark-mobile "
+                        : "active-nav-light-mobile"
                     }
                     spy={true}
                     duration={500}
@@ -316,126 +189,12 @@ const Nav = () => {
                       <HiHashtag />
                     </span>
 
-                    <span>home</span>
+                    <span>{item.name}</span>
                   </Scroll.Link>
                 </li>
-                <li className="relative">
-                  <Scroll.Link
-                    onClick={isMobileNavSelected}
-                    to="skills"
-                    smooth={true}
-                    activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
-                    }
-                    spy={true}
-                    duration={500}
-                    offset={-60}
-                    className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
-                  >
-                    <span
-                      className={` text-[1.1rem] py-1.5  ${
-                        theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-                      }`}
-                    >
-                      <HiHashtag />
-                    </span>
-                    <span>skills</span>
-                  </Scroll.Link>
-                </li>
-                <li className="relative">
-                  <Scroll.Link
-                    onClick={isMobileNavSelected}
-                    to="project"
-                    smooth={true}
-                    activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
-                    }
-                    spy={true}
-                    duration={500}
-                    offset={-60}
-                    className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
-                  >
-                    <span
-                      className={` text-[1.1rem] py-1.5  ${
-                        theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-                      }`}
-                    >
-                      <HiHashtag />
-                    </span>
-                    <span>projects</span>
-                  </Scroll.Link>
-                </li>
-                <li className="relative">
-                  <Scroll.Link
-                    onClick={isMobileNavSelected}
-                    to="experience"
-                    smooth={true}
-                    activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
-                    }
-                    spy={true}
-                    duration={500}
-                    offset={-60}
-                    className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
-                  >
-                    <span
-                      className={` text-[1.1rem] py-1.5  ${
-                        theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-                      }`}
-                    >
-                      <HiHashtag />
-                    </span>
-                    <span>experience</span>
-                  </Scroll.Link>
-                </li>
-                <li className="relative">
-                  <Scroll.Link
-                    onClick={isMobileNavSelected}
-                    to="education"
-                    smooth={true}
-                    activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
-                    }
-                    spy={true}
-                    duration={500}
-                    offset={-60}
-                    className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
-                  >
-                    <span
-                      className={` text-[1.1rem] py-1.5  ${
-                        theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-                      }`}
-                    >
-                      <HiHashtag />
-                    </span>
-                    <span>education</span>
-                  </Scroll.Link>
-                </li>
-                <li className="relative">
-                  <Scroll.Link
-                    onClick={isMobileNavSelected}
-                    to="contact"
-                    smooth={true}
-                    activeClass={
-                      theme === "dark" ? "active-nav-dark-mobile " : "active-nav-light-mobile"
-                    }
-                    spy={true}
-                    duration={500}
-                    offset={-60}
-                    className="flex px-8  pt-3 pb-1.5 cursor-pointer  "
-                  >
-                    <span
-                      className={` text-[1.1rem] py-1.5  ${
-                        theme === "dark" ? "text-[#C778DD]" : "text-[#a840c5]"
-                      }`}
-                    >
-                      <HiHashtag />
-                    </span>
-                    <span>contact</span>
-                  </Scroll.Link>
-                </li>
-
-                <li >
+                ))}
+                
+                <li>
                   <div className="flex justify-end space-x-6 px-8 pb-4">
                     <Link
                       to="https://github.com/Risabstha?tab=repositories"
