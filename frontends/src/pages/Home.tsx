@@ -62,7 +62,7 @@ const Home = () => {
   // 3D hover effect on picture
    const imgRef = useRef(null);
 
-  const handleMouseMove = (e : any) => {
+   const handleMouseMove = (e : any ) => {
     const img : any = imgRef.current;
     const rect = img.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -282,15 +282,15 @@ const Home = () => {
 
               <div
               className="relative w-full perspective-[1000px]"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}>
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}>
                 {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
                 <img
-                ref={imgRef}
-                  // className="relative  rounded-[15%] 
-                  // hover:scale-105 hover:rotate-y-6  transiction-transform duration-300  ease-in-out
-                  // w-full  "
-                className={`rounded-[15%] transition-transform duration-200 ease-out w-full ${ theme === 'dark' ? "hover:shadow-[0_5px_20px_rgba(0,0,0,0.25)]" : "hover:shadow-[0_10px_20px_rgba(0,0,0,0.25)]"}`}
+                  ref={imgRef}
+                  className={`rounded-[15%] transition-transform duration-200 ease-out w-full 
+                            ${ theme === 'dark' ?
+                                "hover:shadow-[0_5px_20px_rgba(0,0,0,0.25)]" : 
+                                  "hover:shadow-[0_10px_20px_rgba(0,0,0,0.25)]"}`}
                   src={profile}
                   alt="profile"
                   fetchPriority="high"    // image loading priority badhauna
@@ -327,7 +327,7 @@ const Home = () => {
             <div>
               {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
               <img
-                className="relative z-0 w-[12rem] rounded-[15%]"
+                className="relative z-0  rounded-[15%] w-[12rem]"
                 src={profile}
                 alt="profile image"
                 fetchPriority="high"
