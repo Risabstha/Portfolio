@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useState, useRef } from "react";
 import { useTheme } from "../stores/ThemeProvider";
 import "../styles/Home.css";
 import "animate.css";
@@ -59,6 +59,30 @@ function reducer(state: State, action: Action) {
 }
 
 const Home = () => {
+  // 3D hover effect on picture
+   const imgRef = useRef(null);
+
+  const handleMouseMove = (e : any) => {
+    const img : any = imgRef.current;
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Control rotation limits (smaller = subtle)
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    img.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  };
+
+  const handleMouseLeave = () => {
+    const img : any = imgRef.current;
+    img.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+  };
+
+
   const { theme } = useTheme();
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -256,11 +280,17 @@ const Home = () => {
                         md:top-12.5 md:left-0 md:w-[6rem]  md:h-[6rem]"
               />
 
-              <div className="">
+              <div
+              className="relative w-full perspective-[1000px]"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}>
                 {/* image lai relative banaune rw bottom ma place garne , ani image le svg rw dot lai cover garnxa */}
                 <img
-                  className="relative  rounded-[15%]
-                  w-full  "
+                ref={imgRef}
+                  // className="relative  rounded-[15%] 
+                  // hover:scale-105 hover:rotate-y-6  transiction-transform duration-300  ease-in-out
+                  // w-full  "
+                className={`rounded-[15%] transition-transform duration-200 ease-out w-full ${ theme === 'dark' ? "hover:shadow-[0_5px_20px_rgba(0,0,0,0.25)]" : "hover:shadow-[0_10px_20px_rgba(0,0,0,0.25)]"}`}
                   src={profile}
                   alt="profile"
                   fetchPriority="high"    // image loading priority badhauna
